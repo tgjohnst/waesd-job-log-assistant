@@ -8,6 +8,14 @@ A hosted version is available at: [https://tgjohnst.github.io/waesd-job-log-assi
 
 ---
 
+## Disclaimers
+
+- This tool is not affiliated with or endorsed by the Washington State Employment Security Department. 
+- **Always verify your submission and final job log meets official requirements.** Authors are not responsible or liable for any issues arising from the use of this tool. Use at your own risk
+- This tool is based on the WA ESD job search log requirements as of November, 2025 and may need updates if those requirements change.
+
+---
+
 ## Features
 
 ### 📝 Guided Job Log Entry
@@ -77,13 +85,5 @@ A hosted version is available at: [https://tgjohnst.github.io/waesd-job-log-assi
 - [JSZip](https://stuk.github.io/jszip/) for ZIP file creation
 - [FileSaver.js](https://github.com/eligrey/FileSaver.js/) for file downloads
 - [Tailwind CSS](https://tailwindcss.com/) for UI styling
-
----
-
-## Disclaimers
-
-- This tool is not affiliated with or endorsed by the Washington State Employment Security Department. 
-- **Always verify your submission and final job log meets official requirements.** Authors are not responsible or liable for any issues arising from the use of this tool. Use at your own risk
-- This tool is based on the WA ESD job search log requirements as of November, 2025 and may need updates if those requirements change.
 
 ---
