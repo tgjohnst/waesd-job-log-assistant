@@ -80,8 +80,10 @@ A hosted version is available at: [https://tgjohnst.github.io/waesd-job-log-assi
 
 ---
 
-## Disclaimer
+## Disclaimers
 
-This tool is not affiliated with or endorsed by the Washington State Employment Security Department. **Always verify your submission and final job log meets official requirements.** Authors are not responsible or liable for any issues arising from the use of this tool.
+- This tool is not affiliated with or endorsed by the Washington State Employment Security Department. 
+- **Always verify your submission and final job log meets official requirements.** Authors are not responsible or liable for any issues arising from the use of this tool. Use at your own risk
+- This tool is based on the WA ESD job search log requirements as of November, 2025 and may need updates if those requirements change.
 
 ---
