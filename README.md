@@ -4,6 +4,8 @@ A browser-based assistant wizard to help you document and package your weekly jo
 
 A hosted version is available at: [https://tgjohnst.github.io/waesd-job-log-assistant/](https://tgjohnst.github.io/waesd-job-log-assistant/)
 
+![Screenshot Cascade](screenshots/screenshots_cascade1.png)
+
 ---
 
 ## Features
