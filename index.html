@@ -13,75 +13,9 @@
     <!-- 4. FileSaver.js - For triggering the download -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 
-    <style>
-        /* Custom styles */
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        /* Basic styles for the paste-to-upload box */
-        .paste-box {
-            border: 2px dashed #cbd5e1;
-            transition: all 0.3s ease;
-        }
-        .paste-box.highlight {
-            border-color: #14b8a6; /* teal-500 */
-            background-color: #f0fdfa; /* teal-50 */
-        }
-        .paste-box img {
-            max-width: 100%;
-            max-height: 150px;
-            object-fit: contain;
-        }
-        /* Loading Overlay */
-        #loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.75);
-            display: none; /* Hidden by default */
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-        }
-        .spinner {
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-left-color: #fff;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-        /* Custom focus ring */
-        .form-input {
-            @apply w-full p-3 border border-gray-300 rounded-lg shadow-sm transition-all duration-200;
-        }
-        .form-input:focus, .form-select:focus {
-            @apply ring-2 ring-teal-500 ring-opacity-75 border-transparent outline-none;
-        }
-        /* Style date picker placeholder */
-        input[type="date"]:invalid::-webkit-datetime-edit {
-            color: #9ca3af;
-        }
-        /* Documentation requirement box */
-        .doc-box {
-            background-color: #f3f4f6; /* gray-100 */
-            border-left: 4px solid #14b8a6; /* teal-500 */
-            padding: 1rem;
-            border-radius: 0.375rem; /* rounded-md */
-        }
-        .doc-box p {
-            margin: 0;
-            font-style: italic;
-            color: #4b5563; /* gray-600 */
-        }
-    </style>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    
 </head>
 <body class="bg-gray-100 text-gray-800">
 

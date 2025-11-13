@@ -1,0 +1,505 @@
+pdftk ESD-job-search-log-251009_0.pdf dump_data_fields
+---
+FieldType: Text
+FieldName: Jobsearch log for week ending MonthDayYear
+FieldNameAlt: Job-search log for week ending (Month/Day/Year
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: ID or SSN
+FieldNameAlt: ID or SSN
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: EMPLOYER CONTACTS AND JOB SEARCH ACTIVITIES
+FieldNameAlt: EMPLOYER CONTACTS AND JOB SEARCH ACTIVITIES
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Job title or job reference number
+FieldNameAlt: Job title or job reference number
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Employer or business name
+FieldNameAlt: Employer or business name
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Employer or business contact information
+FieldNameAlt: Employer or business contact information
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Address
+FieldNameAlt: Address
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: What activity did you complete
+FieldNameAlt: What activity did you complete
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: What documentation do you have
+FieldNameAlt: What documentation do you have
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: State_2
+FieldNameAlt: State
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: What activity did you complete_2
+FieldNameAlt: What activity did you complete
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: What documentation do you have_2
+FieldNameAlt: What documentation do you have
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Contact Date MMDDYYYY
+FieldNameAlt: Contact Date (MM/DD/YYYY
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Job title or job reference number_2
+FieldNameAlt: Job title or job reference number
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Employer or business name_2
+FieldNameAlt: Employer or business name
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Employer or business contact information_2
+FieldNameAlt: Employer or business contact information
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Address_2
+FieldNameAlt: Address
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: What activity did you complete_3
+FieldNameAlt: What activity did you complete
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: What documentation do you have_3
+FieldNameAlt: What documentation do you have
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Where did you complete this activity_2
+FieldNameAlt: Where did you complete this activity
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Office name_2
+FieldNameAlt: Office name
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: State_4
+FieldNameAlt: State
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: What activity did you complete_4
+FieldNameAlt: What activity did you complete
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: What documentation do you have_4
+FieldNameAlt: What documentation do you have
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Keep this log for your records
+FieldNameAlt: Keep this log for your records
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Job title or job reference number_3
+FieldNameAlt: Job title or job reference number
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Employer or business name_3
+FieldNameAlt: Employer or business name
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Employer or business contact information_3
+FieldNameAlt: Employer or business contact information
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Address_3
+FieldNameAlt: Address
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Website or email address_3
+FieldNameAlt: Website or email address
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: What activity did you complete_5
+FieldNameAlt: What activity did you complete
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: What documentation do you have_5
+FieldNameAlt: What documentation do you have
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Where did you complete this activity_3
+FieldNameAlt: Where did you complete this activity
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Office name_3
+FieldNameAlt: Office name
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: State_6
+FieldNameAlt: State
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: What activity did you complete_6
+FieldNameAlt: What activity did you complete
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: What documentation do you have_6
+FieldNameAlt: What documentation do you have
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: job-search-week
+FieldNameAlt: MM/DD/YYYY
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Website or email address
+FieldNameAlt: Website or email address
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Phone number
+FieldNameAlt: Phone number
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Office name
+FieldNameAlt: Office name
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: City
+FieldNameAlt: City
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: State2
+FieldNameAlt: State2
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: State
+FieldNameAlt: State
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: State3
+FieldNameAlt: State3
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Website or email address2
+FieldNameAlt: Website or email address2
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Phone number2
+FieldNameAlt: Phone number2
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Website or email address3
+FieldNameAlt: Website or email address3
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: other contact
+FieldNameAlt: other contact
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Other contact3
+FieldNameAlt: Other contact3
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Other contact2
+FieldNameAlt: Other contact2
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: Activity
+FieldFlags: 49152
+FieldJustification: Left
+FieldStateOption: employer contact
+FieldStateOption: Off
+FieldStateOption: Worksource activity
+FieldStateOption: other activity
+---
+FieldType: Button
+FieldName: Activity2
+FieldFlags: 49152
+FieldJustification: Left
+FieldStateOption: employer contract2
+FieldStateOption: Off
+FieldStateOption: Worksource activity2
+FieldStateOption: other activity2
+---
+FieldType: Button
+FieldName: Activity3
+FieldFlags: 49152
+FieldJustification: Left
+FieldStateOption: Employer contact
+FieldStateOption: Off
+FieldStateOption: Worksource activity
+FieldStateOption: Other activity
+---
+FieldType: Button
+FieldName: In-person
+FieldNameAlt: In-person
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Yes
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Online
+FieldNameAlt: Online
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Yes
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: By phone
+FieldNameAlt: By phone
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Yes
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: By email
+FieldNameAlt: By email
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Yes
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: By mail
+FieldNameAlt: By mail
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Yes
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Other
+FieldNameAlt: By mail
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Yes
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Type of contact3
+FieldFlags: 49152
+FieldJustification: Left
+FieldStateOption: application resume3
+FieldStateOption: Off
+FieldStateOption: Interview3
+FieldStateOption: Inquiry3
+---
+FieldType: Button
+FieldName: Type of Contact
+FieldFlags: 49152
+FieldJustification: Left
+FieldStateOption: application resume
+FieldStateOption: Off
+FieldStateOption: Interview
+FieldStateOption: Inquiry
+---
+FieldType: Button
+FieldName: Type of Contact2
+FieldFlags: 49152
+FieldJustification: Left
+FieldStateOption: Application resume2
+FieldStateOption: Off
+FieldStateOption: Interview2
+FieldStateOption: Inquiry2
+---
+FieldType: Button
+FieldName: In-person-2
+FieldNameAlt: In-person-2
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Yes
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Online-2
+FieldNameAlt: Online-2
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Yes
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: By phone-2
+FieldNameAlt: By phone-2
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Yes
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: By email-2
+FieldNameAlt: By email-2
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Yes
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: By mail-2
+FieldNameAlt: By mail-2
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Yes
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: In-person-3
+FieldNameAlt: In-person-3
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Yes
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Online-3
+FieldNameAlt: Online-3
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Yes
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: By phone-3
+FieldNameAlt: By phone-3
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Yes
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: By email-3
+FieldNameAlt: By email-3
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Yes
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: By mail-3
+FieldNameAlt: By mail-3
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Yes
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Other-2
+FieldNameAlt: By mail-2
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Yes
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Other-3
+FieldNameAlt: By mail-3
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Yes
+FieldStateOption: Off
