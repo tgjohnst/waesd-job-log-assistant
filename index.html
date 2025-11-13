@@ -135,7 +135,9 @@
                                 <option value="In-person">In-person</option>
                                 <option value="By Mail">By Mail</option>
                                 <option value="Other">Other</option>
+                                <option value="Other">Other</option>
                             </select>
+                            <input type="text" id="ec-contact-other" placeholder="Other contact details" class="form-input">
                             <input type="text" id="ec-contact-other" placeholder="Other contact details" class="form-input">
                             <select id="ec-contact-type" class="form-input bg-white">
                                 <option value="">-- Type of contact? --</option>
@@ -145,6 +147,9 @@
                             </select>
                             <input type="text" id="ec-website-email" placeholder="Website or Email Address" class="sm:col-span-2 form-input">
                             <input type="text" id="ec-phone" placeholder="Phone Number" class="form-input">
+                            <input type="text" id="ec-address" placeholder="Address (Street)" class="form-input">
+                            <input type="text" id="ec-address-city" placeholder="[Address] City" class="form-input">
+                            <input type="text" id="ec-address-state" placeholder="[Address] State" class="form-input">
                             <input type="text" id="ec-address" placeholder="Address (Street)" class="form-input">
                             <input type="text" id="ec-address-city" placeholder="[Address] City" class="form-input">
                             <input type="text" id="ec-address-state" placeholder="[Address] State" class="form-input">
@@ -498,6 +503,11 @@
             const mm = String(upcomingSaturday.getMonth() + 1).padStart(2, '0');
             const dd = String(upcomingSaturday.getDate()).padStart(2, '0');
             weekEndingInput.value = `${yyyy}-${mm}-${dd}`;
+            // Format as YYYY-MM-DD using local time
+            const yyyy = upcomingSaturday.getFullYear();
+            const mm = String(upcomingSaturday.getMonth() + 1).padStart(2, '0');
+            const dd = String(upcomingSaturday.getDate()).padStart(2, '0');
+            weekEndingInput.value = `${yyyy}-${mm}-${dd}`;
         }
 
         function getUpcomingSaturday() {
@@ -699,9 +709,13 @@
                     employerName: document.getElementById('ec-employer-name').value,
                     contactMethod: document.getElementById('ec-contact-method').value,
                     contactMethodOther: document.getElementById('ec-contact-other').value,
+                    contactMethodOther: document.getElementById('ec-contact-other').value,
                     contactType: document.getElementById('ec-contact-type').value,
                     websiteEmail: document.getElementById('ec-website-email').value,
                     phone: document.getElementById('ec-phone').value,
+                    address: document.getElementById('ec-address').value,
+                    addressCity: document.getElementById('ec-address-city').value,
+                    addressState: document.getElementById('ec-address-state').value
                     address: document.getElementById('ec-address').value,
                     addressCity: document.getElementById('ec-address-city').value,
                     addressState: document.getElementById('ec-address-state').value
@@ -762,10 +776,13 @@
                 document.getElementById('ec-employer-name').value = activity.details.employerName || '';
                 document.getElementById('ec-contact-method').value = activity.details.contactMethod || '';
                 document.getElementById('ec-contact-other').value = activity.details.contactMethodOther || '';
+                document.getElementById('ec-contact-other').value = activity.details.contactMethodOther || '';
                 document.getElementById('ec-contact-type').value = activity.details.contactType || '';
                 document.getElementById('ec-website-email').value = activity.details.websiteEmail || '';
                 document.getElementById('ec-phone').value = activity.details.phone || '';
                 document.getElementById('ec-address').value = activity.details.address || '';
+                document.getElementById('ec-address-city').value = activity.details.addressCity || '';
+                document.getElementById('ec-address-state').value = activity.details.addressState || '';
                 document.getElementById('ec-address-city').value = activity.details.addressCity || '';
                 document.getElementById('ec-address-state').value = activity.details.addressState || '';
                 if (activity.proofFile) {
@@ -1047,6 +1064,8 @@
             fillTextField('job-search-week', claimWeek.weekEnding);
             fillTextField('Jobsearch log for week ending MonthDayYear', claimWeek.name);
             fillTextField('ID or SSN', claimWeek.idOrSsn);
+            fillTextField('Jobsearch log for week ending MonthDayYear', claimWeek.name);
+            fillTextField('ID or SSN', claimWeek.idOrSsn);
 
             // --- Fill Activities (Hardcoded based on dump) ---
             claimWeek.activities.forEach((activity, index) => {
@@ -1076,8 +1095,11 @@
                 }
                 // NOTE THAT THIS PDF HAS NONSTANDARD FIELD NAMING CONVENTIONS - it is messed up. 
                 // Field names will be weird and inconsistent, below, but they work
+                // NOTE THAT THIS PDF HAS NONSTANDARD FIELD NAMING CONVENTIONS - it is messed up. 
+                // Field names will be weird and inconsistent, below, but they work
                 // --- Column 1 (index 0) ---
                 if (index === 0) {
+                    fillTextField('EMPLOYER CONTACTS AND JOB SEARCH ACTIVITIES', activity.date);
                     fillTextField('EMPLOYER CONTACTS AND JOB SEARCH ACTIVITIES', activity.date);
                     
                     if (activity.category === 'employer_contact') {
@@ -1094,11 +1116,18 @@
                             checkCheckBox('Other');
                             fillTextField('other contact', activity.details.contactMethodOther);
                         }
+                        if (activity.details.contactMethod === 'Other') {
+                            checkCheckBox('Other');
+                            fillTextField('other contact', activity.details.contactMethodOther);
+                        }
                         
                         if (activity.details.contactType === 'Application/resume') selectRadio('Type of Contact', 'application resume');
                         if (activity.details.contactType === 'Interview') selectRadio('Type of Contact', 'Interview');
                         if (activity.details.contactType === 'Inquiry') selectRadio('Type of Contact', 'Inquiry');
                         
+                        fillTextField('Employer or business contact information', activity.details.address); // nonstandard naming issue in pdf
+                        fillTextField('Address', activity.details.addressCity);
+                        fillTextField('State', activity.details.addressState);
                         fillTextField('Employer or business contact information', activity.details.address); // nonstandard naming issue in pdf
                         fillTextField('Address', activity.details.addressCity);
                         fillTextField('State', activity.details.addressState);
@@ -1109,9 +1138,14 @@
                         selectRadio('Activity', 'Worksource activity');
                         officeName = activity.details.office_name || '';
                         if (activity.category === 'worksource_online') officeName = 'Online';
+                        officeName = activity.details.office_name || '';
+                        if (activity.category === 'worksource_online') officeName = 'Online';
                         
                         fillTextField('What activity did you complete', activityName);
                         fillTextField('What documentation do you have', documentation);
+                        fillTextField('Office name', officeName);
+                        fillTextField('City', activity.details.office_city); // PDF 'City' field seems to be for WorkSource
+                        fillTextField('State_2', activity.details.office_state); // PDF 'State' field seems to be for WorkSource
                         fillTextField('Office name', officeName);
                         fillTextField('City', activity.details.office_city); // PDF 'City' field seems to be for WorkSource
                         fillTextField('State_2', activity.details.office_state); // PDF 'State' field seems to be for WorkSource
@@ -1126,6 +1160,7 @@
                 
                 // --- Column 2 (index 1) ---
                 else if (index === 1) {
+                    fillTextField('Contact Date MMDDYYYY', activity.date);
                     fillTextField('Contact Date MMDDYYYY', activity.date);
                     
                     if (activity.category === 'employer_contact') {
@@ -1142,6 +1177,10 @@
                             checkCheckBox('Other-2');
                             fillTextField('Other contact2', activity.details.contactMethodOther);
                         }
+                        if (activity.details.contactMethod === 'Other') {
+                            checkCheckBox('Other-2');
+                            fillTextField('Other contact2', activity.details.contactMethodOther);
+                        }
                         
                         if (activity.details.contactType === 'Application/resume') selectRadio('Type of Contact2', 'Application resume2');
                         if (activity.details.contactType === 'Interview') selectRadio('Type of Contact2', 'Interview2');
@@ -1152,12 +1191,24 @@
                         fillTextField('State2', activity.details.addressState);
                         fillTextField('Website or email address2', activity.details.websiteEmail);
                         fillTextField('Phone number2', activity.details.phone);
+                        fillTextField('Employer or business contact information_2', activity.details.address); 
+                        fillTextField('Address_2', activity.details.addressCity);
+                        fillTextField('State2', activity.details.addressState);
+                        fillTextField('Website or email address2', activity.details.websiteEmail);
+                        fillTextField('Phone number2', activity.details.phone);
                     
                     } else if (activity.category.startsWith('worksource_') || activity.category === 'wioa_programs') {
                         selectRadio('Activity2', 'Worksource activity2');
                         officeName = activity.details.office_name || '';
                         if (activity.category === 'worksource_online') officeName = 'Online';
+                        officeName = activity.details.office_name || '';
+                        if (activity.category === 'worksource_online') officeName = 'Online';
                         
+                        fillTextField('What activity did you complete_3', activityName); 
+                        fillTextField('What documentation do you have_3', documentation);
+                        fillTextField('Where did you complete this activity_2', officeName); //office name
+                        fillTextField('Office name_2', activity.details.office_city); //city
+                        fillTextField('State_4', activity.details.office_state); //state
                         fillTextField('What activity did you complete_3', activityName); 
                         fillTextField('What documentation do you have_3', documentation);
                         fillTextField('Where did you complete this activity_2', officeName); //office name
@@ -1168,11 +1219,14 @@
                         selectRadio('Activity2', 'other activity2');
                         fillTextField('What activity did you complete_4', activityName);
                         fillTextField('What documentation do you have_4', documentation);
+                        fillTextField('What activity did you complete_4', activityName);
+                        fillTextField('What documentation do you have_4', documentation);
                     }
                 }
 
                 // --- Column 3 (index 2) ---
                 else if (index === 2) {
+                    fillTextField('Keep this log for your records', activity.date);
                     fillTextField('Keep this log for your records', activity.date);
                     
                     if (activity.category === 'employer_contact') {
@@ -1189,6 +1243,10 @@
                             checkCheckBox('Other-3');
                             fillTextField('Other contact3', activity.details.contactMethodOther);
                         }
+                        if (activity.details.contactMethod === 'Other') {
+                            checkCheckBox('Other-3');
+                            fillTextField('Other contact3', activity.details.contactMethodOther);
+                        }
                         
                         if (activity.details.contactType === 'Application/resume') selectRadio('Type of contact3', 'application resume3');
                         if (activity.details.contactType === 'Interview') selectRadio('Type of contact3', 'Interview3');
@@ -1199,12 +1257,24 @@
                         fillTextField('State3', activity.details.addressState);
                         fillTextField('Website or email address3', activity.details.websiteEmail);
                         fillTextField('Website or email address_3', activity.details.phone); // nonstandard naming issue in pdf
+                        fillTextField('Employer or business contact information_3', activity.details.address); // nonstandard naming issue in pdf
+                        fillTextField('Address_3', activity.details.addressCity);
+                        fillTextField('State3', activity.details.addressState);
+                        fillTextField('Website or email address3', activity.details.websiteEmail);
+                        fillTextField('Website or email address_3', activity.details.phone); // nonstandard naming issue in pdf
                     
                     } else if (activity.category.startsWith('worksource_') || activity.category === 'wioa_programs') {
                         selectRadio('Activity3', 'Worksource activity');
                         officeName = activity.details.office_name || '';
                         if (activity.category === 'worksource_online') officeName = 'Online';
+                        officeName = activity.details.office_name || '';
+                        if (activity.category === 'worksource_online') officeName = 'Online';
                         
+                        fillTextField('What activity did you complete_5', activityName); 
+                        fillTextField('What documentation do you have_5', documentation); 
+                        fillTextField('Where did you complete this activity_3', officeName); 
+                        fillTextField('Office name_3', activity.details.office_city); // PDF City for WS3
+                        fillTextField('State_6', activity.details.office_state); // PDF State for WS3 (per dump)
                         fillTextField('What activity did you complete_5', activityName); 
                         fillTextField('What documentation do you have_5', documentation); 
                         fillTextField('Where did you complete this activity_3', officeName); 
