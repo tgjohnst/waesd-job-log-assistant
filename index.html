@@ -503,11 +503,6 @@
             const mm = String(upcomingSaturday.getMonth() + 1).padStart(2, '0');
             const dd = String(upcomingSaturday.getDate()).padStart(2, '0');
             weekEndingInput.value = `${yyyy}-${mm}-${dd}`;
-            // Format as YYYY-MM-DD using local time
-            const yyyy = upcomingSaturday.getFullYear();
-            const mm = String(upcomingSaturday.getMonth() + 1).padStart(2, '0');
-            const dd = String(upcomingSaturday.getDate()).padStart(2, '0');
-            weekEndingInput.value = `${yyyy}-${mm}-${dd}`;
         }
 
         function getUpcomingSaturday() {
@@ -715,10 +710,7 @@
                     phone: document.getElementById('ec-phone').value,
                     address: document.getElementById('ec-address').value,
                     addressCity: document.getElementById('ec-address-city').value,
-                    addressState: document.getElementById('ec-address-state').value
-                    address: document.getElementById('ec-address').value,
-                    addressCity: document.getElementById('ec-address-city').value,
-                    addressState: document.getElementById('ec-address-state').value
+                    addressState: document.getElementById('ec-address-state').value,
                 };
                 if (!activity.details.employerName) {
                      showError("Employer Name is required for this activity.");
