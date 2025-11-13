@@ -22,7 +22,7 @@
     <div class="container mx-auto max-w-2xl p-4 sm:p-8">
         <!-- Header -->
         <header class="text-center mb-8">
-            <h1 class="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 via-teal-600 to-blue-700">
+            <h1 class="text-4xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 via-teal-600 to-blue-700">
                 WA-ESD Job Search Logging Assistant
             </h1>
             <p class="text-lg text-gray-600 mt-2">A simple tool to package your WA weekly job log.</p>
@@ -38,10 +38,10 @@
                 <div class="text-center pt-4">
                     <h2 class="text-3xl font-semibold mb-4 text-gray-800">Welcome!</h2>
                     <p class="text-lg text-gray-600 mb-8">
-                        This tool helps you quickly fill out the WA ESD Job Search Log PDF and package it with your proof files into a single ZIP folder.
+                        This tool helps you quickly fill out your weekly WA ESD Job Search Log PDF and package it with any necessary proof files into a single ZIP folder.
                     </p>
                     <p class="text-sm text-gray-500 mb-8">
-                        It runs entirely in your browser. No data is ever uploaded or saved.
+                        This tool runs entirely in your browser. No data is ever uploaded or saved.
                     </p>
                     <button onclick="showStep('welcome')" class="w-full max-w-xs mx-auto bg-gradient-to-r from-green-500 via-teal-600 to-blue-600 text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-xl">
                         Get Started
@@ -67,11 +67,14 @@
                     </div>
                     <div>
                         <label for="claimantName" class="block text-sm font-medium text-gray-700 mb-1">Your Name (Last, First, Middle)</label>
-                        <input type="text" id="claimantName" placeholder="Doe, Jane M." class="form-input">
+                        <input type="text" id="claimantName" placeholder="Doe, Jane, Mary" class="form-input">
                     </div>
                     <div>
                         <label for="claimantId" class="block text-sm font-medium text-gray-700 mb-1">ID or SSN</label>
                         <input type="text" id="claimantId" placeholder="Your ID or SSN" class="form-input">
+                        <p class="text-sm text-gray-500 mb-8">
+                        This tool runs entirely in your browser. No data is ever uploaded or saved.
+                    </p>
                     </div>
                 </div>
                 <button onclick="startLogging()" class="w-full mt-8 bg-gradient-to-r from-teal-500 to-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:from-teal-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
