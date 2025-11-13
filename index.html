@@ -134,7 +134,9 @@
                                 <option value="By Phone">By Phone</option>
                                 <option value="In-person">In-person</option>
                                 <option value="By Mail">By Mail</option>
+                                <option value="Other">Other</option>
                             </select>
+                            <input type="text" id="ec-contact-other" placeholder="Other contact details" class="form-input">
                             <select id="ec-contact-type" class="form-input bg-white">
                                 <option value="">-- Type of contact? --</option>
                                 <option value="Application/resume">Submitted Application/Resume</option>
@@ -143,7 +145,9 @@
                             </select>
                             <input type="text" id="ec-website-email" placeholder="Website or Email Address" class="sm:col-span-2 form-input">
                             <input type="text" id="ec-phone" placeholder="Phone Number" class="form-input">
-                            <input type="text" id="ec-address" placeholder="Address (Street, City, State)" class="form-input">
+                            <input type="text" id="ec-address" placeholder="Address (Street)" class="form-input">
+                            <input type="text" id="ec-address-city" placeholder="[Address] City" class="form-input">
+                            <input type="text" id="ec-address-state" placeholder="[Address] State" class="form-input">
                         </div>
                         <div class="mt-4">
                             <label class="block text-sm font-medium text-gray-700 mb-2">Proof (Optional, e.g., application confirmation screenshot)</label>
@@ -406,10 +410,10 @@
                 { id: 'ws_online_resea', text: 'Participate in RESEA initial or follow-up', doc: 'Name of activity, date, and where or how completed.', proof: 'none' } // Doc is what we are logging
             ],
             'worksource_inperson': [
-                { id: 'ws_inperson_workshop', text: 'Join an in-person WorkSource workshop', doc: 'Name, date and location of the workshop.', proof: 'none', fields: [{id: 'workshop_name', ph: 'Workshop Name'}, {id: 'location', ph: 'Location'}] },
-                { id: 'ws_inperson_specialist', text: 'Meet with a WorkSource specialist/coach', doc: 'Name of the specialist or coach. Date and time you met.', proof: 'none', fields: [{id: 'specialist_name', ph: 'Specialist/Coach Name'}] },
-                { id: 'ws_inperson_job_fair', text: 'Participate in WorkSource job fair/club/event', doc: 'Date and location of the job fair. Name and contact information of the employer you spoke to.', proof: 'none', fields: [{id: 'event_name', ph: 'Event Name'}, {id: 'location', ph: 'Location'}, {id: 'employer_contact', ph: 'Employer Contacted'}] },
-                { id: 'ws_inperson_resea', text: 'Participate in RESEA initial or follow-up', doc: 'Name of activity, date, and where or how completed.', proof: 'none' }
+                { id: 'ws_inperson_workshop', text: 'Join an in-person WorkSource workshop', doc: 'Name, date and location of the workshop.', proof: 'none', fields: [{id: 'workshop_name', ph: 'Workshop Name'}, {id: 'office_name', ph: 'Office Name'}, {id: 'office_city', ph: 'Office City'}, {id: 'office_state', ph: 'Office State'}] },
+                { id: 'ws_inperson_specialist', text: 'Meet with a WorkSource specialist/coach', doc: 'Name of the specialist or coach. Date and time you met.', proof: 'none', fields: [{id: 'specialist_name', ph: 'Specialist/Coach Name'}, {id: 'office_name', ph: 'Office Name'}, {id: 'office_city', ph: 'Office City'}, {id: 'office_state', ph: 'Office State'}] },
+                { id: 'ws_inperson_job_fair', text: 'Participate in WorkSource job fair/club/event', doc: 'Date and location of the job fair. Name and contact information of the employer you spoke to.', proof: 'none', fields: [{id: 'event_name', ph: 'Event Name'}, {id: 'office_name', ph: 'Office Name'}, {id: 'office_city', ph: 'Office City'}, {id: 'office_state', ph: 'Office State'}, {id: 'employer_contact', ph: 'Employer Contacted'}] },
+                { id: 'ws_inperson_resea', text: 'Participate in RESEA initial or follow-up', doc: 'Name of activity, date, and where or how completed.', proof: 'none', fields: [{id: 'office_name', ph: 'Office Name'}, {id: 'office_city', ph: 'Office City'}, {id: 'office_state', ph: 'Office State'}] }
             ],
             'hiring_events_etc': [
                 { id: 'he_job_fair', text: 'Attend in-person/virtual job fair or hiring event', doc: 'Your registration letter or email. Include employer name, contact info, and how you made contact.', proof: 'required', fields: [{id: 'event_name', ph: 'Event Name'}, {id: 'employer_contact', ph: 'Employer Contacted'}, {id: 'contact_info', ph: 'Employer Contact Info'}] },
@@ -489,8 +493,11 @@
         function setThisWeek() {
             const weekEndingInput = document.getElementById('weekEnding');
             const upcomingSaturday = getUpcomingSaturday();
-            // Format as YYYY-MM-DD for the date input
-            weekEndingInput.value = upcomingSaturday.toISOString().split('T')[0];
+            // Format as YYYY-MM-DD using local time
+            const yyyy = upcomingSaturday.getFullYear();
+            const mm = String(upcomingSaturday.getMonth() + 1).padStart(2, '0');
+            const dd = String(upcomingSaturday.getDate()).padStart(2, '0');
+            weekEndingInput.value = `${yyyy}-${mm}-${dd}`;
         }
 
         function getUpcomingSaturday() {
@@ -691,10 +698,13 @@
                     jobTitle: document.getElementById('ec-job-title').value,
                     employerName: document.getElementById('ec-employer-name').value,
                     contactMethod: document.getElementById('ec-contact-method').value,
+                    contactMethodOther: document.getElementById('ec-contact-other').value,
                     contactType: document.getElementById('ec-contact-type').value,
                     websiteEmail: document.getElementById('ec-website-email').value,
                     phone: document.getElementById('ec-phone').value,
-                    address: document.getElementById('ec-address').value
+                    address: document.getElementById('ec-address').value,
+                    addressCity: document.getElementById('ec-address-city').value,
+                    addressState: document.getElementById('ec-address-state').value
                 };
                 if (!activity.details.employerName) {
                      showError("Employer Name is required for this activity.");
@@ -751,10 +761,13 @@
                 document.getElementById('ec-job-title').value = activity.details.jobTitle || '';
                 document.getElementById('ec-employer-name').value = activity.details.employerName || '';
                 document.getElementById('ec-contact-method').value = activity.details.contactMethod || '';
+                document.getElementById('ec-contact-other').value = activity.details.contactMethodOther || '';
                 document.getElementById('ec-contact-type').value = activity.details.contactType || '';
                 document.getElementById('ec-website-email').value = activity.details.websiteEmail || '';
                 document.getElementById('ec-phone').value = activity.details.phone || '';
                 document.getElementById('ec-address').value = activity.details.address || '';
+                document.getElementById('ec-address-city').value = activity.details.addressCity || '';
+                document.getElementById('ec-address-state').value = activity.details.addressState || '';
                 if (activity.proofFile) {
                     showFilePreview(document.getElementById('paste-box-employer_contact'), activity.proofFile, activity.proofFileName);
                 }
@@ -1032,8 +1045,8 @@
 
             // --- Fill General Info (Using names from dump) ---
             fillTextField('job-search-week', claimWeek.weekEnding);
-            fillTextField('Name (Last, First, Middle):', claimWeek.name); // This field was missing from dump, using visible text
-            fillTextField('ID or SSN', claimWeek.idOrSsn); // This one was confirmed working
+            fillTextField('Jobsearch log for week ending MonthDayYear', claimWeek.name);
+            fillTextField('ID or SSN', claimWeek.idOrSsn);
 
             // --- Fill Activities (Hardcoded based on dump) ---
             claimWeek.activities.forEach((activity, index) => {
@@ -1061,10 +1074,11 @@
                         documentation += ` [Proof File: ${activity.proofFileName}]`;
                     }
                 }
-
+                // NOTE THAT THIS PDF HAS NONSTANDARD FIELD NAMING CONVENTIONS - it is messed up. 
+                // Field names will be weird and inconsistent, below, but they work
                 // --- Column 1 (index 0) ---
                 if (index === 0) {
-                    fillTextField('Contact Date MMDDYYYY', activity.date);
+                    fillTextField('EMPLOYER CONTACTS AND JOB SEARCH ACTIVITIES', activity.date);
                     
                     if (activity.category === 'employer_contact') {
                         selectRadio('Activity', 'employer contact');
@@ -1076,25 +1090,31 @@
                         if (activity.details.contactMethod === 'By phone') checkCheckBox('By phone');
                         if (activity.details.contactMethod === 'By Email') checkCheckBox('By email');
                         if (activity.details.contactMethod === 'By mail') checkCheckBox('By mail');
+                        if (activity.details.contactMethod === 'Other') {
+                            checkCheckBox('Other');
+                            fillTextField('other contact', activity.details.contactMethodOther);
+                        }
                         
                         if (activity.details.contactType === 'Application/resume') selectRadio('Type of Contact', 'application resume');
                         if (activity.details.contactType === 'Interview') selectRadio('Type of Contact', 'Interview');
                         if (activity.details.contactType === 'Inquiry') selectRadio('Type of Contact', 'Inquiry');
                         
-                        fillTextField('Address', activity.details.address);
+                        fillTextField('Employer or business contact information', activity.details.address); // nonstandard naming issue in pdf
+                        fillTextField('Address', activity.details.addressCity);
+                        fillTextField('State', activity.details.addressState);
                         fillTextField('Website or email address', activity.details.websiteEmail);
                         fillTextField('Phone number', activity.details.phone);
                     
                     } else if (activity.category.startsWith('worksource_') || activity.category === 'wioa_programs') {
                         selectRadio('Activity', 'Worksource activity');
-                        location = activity.details.location || '';
-                        if (activity.category === 'worksource_online') location = 'Online';
+                        officeName = activity.details.office_name || '';
+                        if (activity.category === 'worksource_online') officeName = 'Online';
                         
                         fillTextField('What activity did you complete', activityName);
                         fillTextField('What documentation do you have', documentation);
-                        fillTextField('Office name', location); // Using 'Office name' for location
-                        // fillTextField('City', ...); // PDF 'City' field seems to be for WorkSource
-                        // fillTextField('State', ...); // PDF 'State' field seems to be for WorkSource
+                        fillTextField('Office name', officeName);
+                        fillTextField('City', activity.details.office_city); // PDF 'City' field seems to be for WorkSource
+                        fillTextField('State_2', activity.details.office_state); // PDF 'State' field seems to be for WorkSource
                     
                     } else { // All others
                         selectRadio('Activity', 'other activity');
@@ -1106,8 +1126,7 @@
                 
                 // --- Column 2 (index 1) ---
                 else if (index === 1) {
-                    // NOTE: Date field for Col 2 is NOT in the dump. Guessing based on Col 1.
-                    fillTextField('Contact Date MMDDYYYY_2', activity.date); // GUESS
+                    fillTextField('Contact Date MMDDYYYY', activity.date);
                     
                     if (activity.category === 'employer_contact') {
                         selectRadio('Activity2', 'employer contract2'); // Name from dump
@@ -1119,37 +1138,42 @@
                         if (activity.details.contactMethod === 'By phone') checkCheckBox('By phone-2');
                         if (activity.details.contactMethod === 'By Email') checkCheckBox('By email-2');
                         if (activity.details.contactMethod === 'By mail') checkCheckBox('By mail-2');
+                        if (activity.details.contactMethod === 'Other') {
+                            checkCheckBox('Other-2');
+                            fillTextField('Other contact2', activity.details.contactMethodOther);
+                        }
                         
                         if (activity.details.contactType === 'Application/resume') selectRadio('Type of Contact2', 'Application resume2');
                         if (activity.details.contactType === 'Interview') selectRadio('Type of Contact2', 'Interview2');
                         if (activity.details.contactType === 'Inquiry') selectRadio('Type of Contact2', 'Inquiry2');
                         
-                        fillTextField('Address_2', activity.details.address);
-                        fillTextField('Website or email address2', activity.details.websiteEmail); // Note: 'address2'
-                        fillTextField('Phone number2', activity.details.phone); // Note: 'number2'
+                        fillTextField('Employer or business contact information_2', activity.details.address); 
+                        fillTextField('Address_2', activity.details.addressCity);
+                        fillTextField('State2', activity.details.addressState);
+                        fillTextField('Website or email address2', activity.details.websiteEmail);
+                        fillTextField('Phone number2', activity.details.phone);
                     
                     } else if (activity.category.startsWith('worksource_') || activity.category === 'wioa_programs') {
                         selectRadio('Activity2', 'Worksource activity2');
-                        location = activity.details.location || '';
-                        if (activity.category === 'worksource_online') location = 'Online';
+                        officeName = activity.details.office_name || '';
+                        if (activity.category === 'worksource_online') officeName = 'Online';
                         
-                        fillTextField('What activity did you complete_3', activityName); // Per dump
-                        fillTextField('What documentation do you have_3', documentation); // Per dump
-                        fillTextField('Office name_2', location); // Per dump
-                        // fillTextField('City_2', ...); // PDF City for WS2
-                        // fillTextField('State_4', ...); // PDF State for WS2 (per dump)
+                        fillTextField('What activity did you complete_3', activityName); 
+                        fillTextField('What documentation do you have_3', documentation);
+                        fillTextField('Where did you complete this activity_2', officeName); //office name
+                        fillTextField('Office name_2', activity.details.office_city); //city
+                        fillTextField('State_4', activity.details.office_state); //state
                     
                     } else { // All others
                         selectRadio('Activity2', 'other activity2');
-                        fillTextField('What activity did you complete_4', activityName); // Per dump
-                        fillTextField('What documentation do you have_4', documentation); // Per dump
+                        fillTextField('What activity did you complete_4', activityName);
+                        fillTextField('What documentation do you have_4', documentation);
                     }
                 }
 
                 // --- Column 3 (index 2) ---
                 else if (index === 2) {
-                    // NOTE: Date field for Col 3 is NOT in the dump. Guessing based on Col 1.
-                    fillTextField('Contact Date MMDDYYYY_3', activity.date); // GUESS
+                    fillTextField('Keep this log for your records', activity.date);
                     
                     if (activity.category === 'employer_contact') {
                         selectRadio('Activity3', 'Employer contact'); // Name from dump
@@ -1161,25 +1185,31 @@
                         if (activity.details.contactMethod === 'By phone') checkCheckBox('By phone-3');
                         if (activity.details.contactMethod === 'By Email') checkCheckBox('By email-3');
                         if (activity.details.contactMethod === 'By mail') checkCheckBox('By mail-3');
+                        if (activity.details.contactMethod === 'Other') {
+                            checkCheckBox('Other-3');
+                            fillTextField('Other contact3', activity.details.contactMethodOther);
+                        }
                         
                         if (activity.details.contactType === 'Application/resume') selectRadio('Type of contact3', 'application resume3');
                         if (activity.details.contactType === 'Interview') selectRadio('Type of contact3', 'Interview3');
                         if (activity.details.contactType === 'Inquiry') selectRadio('Type of contact3', 'Inquiry3');
                         
-                        fillTextField('Address_3', activity.details.address);
-                        fillTextField('Website or email address_3', activity.details.websiteEmail); // Note: '_3'
-                        fillTextField('Phone number_3', activity.details.phone); // Note: '_3' (GUESS, not in dump)
+                        fillTextField('Employer or business contact information_3', activity.details.address); // nonstandard naming issue in pdf
+                        fillTextField('Address_3', activity.details.addressCity);
+                        fillTextField('State3', activity.details.addressState);
+                        fillTextField('Website or email address3', activity.details.websiteEmail);
+                        fillTextField('Website or email address_3', activity.details.phone); // nonstandard naming issue in pdf
                     
                     } else if (activity.category.startsWith('worksource_') || activity.category === 'wioa_programs') {
                         selectRadio('Activity3', 'Worksource activity');
-                        location = activity.details.location || '';
-                        if (activity.category === 'worksource_online') location = 'Online';
+                        officeName = activity.details.office_name || '';
+                        if (activity.category === 'worksource_online') officeName = 'Online';
                         
-                        fillTextField('What activity did you complete_5', activityName); // Per dump
-                        fillTextField('What documentation do you have_5', documentation); // Per dump
-                        fillTextField('Office name_3', location); // Per dump
-                        // fillTextField('City_3', ...); // PDF City for WS3
-                        // fillTextField('State_6', ...); // PDF State for WS3 (per dump)
+                        fillTextField('What activity did you complete_5', activityName); 
+                        fillTextField('What documentation do you have_5', documentation); 
+                        fillTextField('Where did you complete this activity_3', officeName); 
+                        fillTextField('Office name_3', activity.details.office_city); // PDF City for WS3
+                        fillTextField('State_6', activity.details.office_state); // PDF State for WS3 (per dump)
                     
                     } else { // All others
                         selectRadio('Activity3', 'Other activity');
