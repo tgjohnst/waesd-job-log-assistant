@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,12 +18,14 @@
     <link rel="stylesheet" href="css/styles.css">
 
 </head>
+
 <body class="bg-gray-100 text-gray-800">
 
     <div class="container mx-auto max-w-2xl p-4 sm:p-8">
         <!-- Header -->
         <header class="text-center mb-8">
-            <h1 class="text-4xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 via-teal-600 to-blue-700">
+            <h1
+                class="text-4xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 via-teal-600 to-blue-700">
                 WA-ESD Job Search Logging Assistant
             </h1>
             <p class="text-lg text-gray-600 mt-2">A simple tool to package your WA weekly job log.</p>
@@ -31,25 +34,30 @@
         <!-- Main Content Area -->
         <main class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-200 relative overflow-hidden">
             <!-- New Gradient Bar -->
-            <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-green-500 via-teal-500 to-blue-600"></div>
+            <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-green-500 via-teal-500 to-blue-600">
+            </div>
 
             <!-- Step 0: Launch Page (New) -->
             <section id="step-launch">
                 <div class="text-center pt-4">
                     <h2 class="text-3xl font-semibold mb-4 text-gray-800">Welcome!</h2>
                     <p class="text-lg text-gray-600 mb-8">
-                        This tool helps you quickly fill out your weekly WA ESD Job Search Log PDF and package it with any necessary proof files into a single ZIP folder.
+                        This tool helps you quickly fill out your weekly WA ESD Job Search Log PDF and package it with
+                        any necessary proof files into a single ZIP folder.
                     </p>
                     <p class="text-sm text-gray-500 mb-8">
                         This tool runs entirely in your browser. No data are ever uploaded or saved.
                     </p>
                     <p class="text-xs text-gray-500">
                         <b>Always verify your submission and final job log meets official requirements.</b><br>
-                        This tool is not affiliated with or endorsed by the Washington State Employment Security Department.
-                        Authors are not responsible or liable for any issues arising from the use of this tool, which is provided as-is. Use at your own risk
+                        This tool is not affiliated with or endorsed by the Washington State Employment Security
+                        Department.
+                        Authors are not responsible or liable for any issues arising from the use of this tool, which is
+                        provided as-is. Use at your own risk
                     </p>
                     <br>
-                    <button onclick="showStep('welcome')" class="w-full max-w-xs mx-auto bg-gradient-to-r from-green-500 via-teal-600 to-blue-600 text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-xl">
+                    <button onclick="showStep('welcome')"
+                        class="w-full max-w-xs mx-auto bg-gradient-to-r from-green-500 via-teal-600 to-blue-600 text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-xl">
                         Get Started
                     </button>
                 </div>
@@ -58,21 +66,25 @@
             <!-- Step 1: Welcome & User Info -->
             <section id="step-welcome" class="hidden">
                 <h2 class="text-2xl font-semibold mb-4 text-gray-700">Step 1: Your Information</h2>
-                <p class="text-gray-600 mb-6">First, let's get your basic info. This will be added to the top of your PDF log.</p>
+                <p class="text-gray-600 mb-6">First, let's get your basic info. This will be added to the top of your
+                    PDF log.</p>
                 <div class="space-y-4">
                     <div>
-                        <label for="weekEnding" class="block text-sm font-medium text-gray-700 mb-1">Week Ending Date</label>
+                        <label for="weekEnding" class="block text-sm font-medium text-gray-700 mb-1">Week Ending
+                            Date</label>
                         <div class="flex items-center space-x-2">
                             <!-- Date picker -->
                             <input type="date" id="weekEnding" required class="form-input">
                             <!-- "This Week" button -->
-                            <button onclick="setThisWeek()" class="flex-shrink-0 bg-teal-100 text-teal-700 font-semibold py-3 px-4 rounded-lg hover:bg-teal-200 transition-all duration-200">
+                            <button onclick="setThisWeek()"
+                                class="flex-shrink-0 bg-teal-100 text-teal-700 font-semibold py-3 px-4 rounded-lg hover:bg-teal-200 transition-all duration-200">
                                 Set to This Week
                             </button>
                         </div>
                     </div>
                     <div>
-                        <label for="claimantName" class="block text-sm font-medium text-gray-700 mb-1">Your Name (Last, First, Middle)</label>
+                        <label for="claimantName" class="block text-sm font-medium text-gray-700 mb-1">Your Name (Last,
+                            First, Middle)</label>
                         <input type="text" id="claimantName" placeholder="Doe, Jane, Mary" class="form-input">
                     </div>
                     <div>
@@ -83,24 +95,28 @@
                         </p>
                     </div>
                 </div>
-                <button onclick="startLogging()" class="w-full mt-8 bg-gradient-to-r from-teal-500 to-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:from-teal-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
+                <button onclick="startLogging()"
+                    class="w-full mt-8 bg-gradient-to-r from-teal-500 to-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:from-teal-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
                     Start Logging Activities
                 </button>
             </section>
 
             <!-- Step 2: Activity Logger (Dynamic) -->
             <section id="step-activity" class="hidden">
-                <h2 class="text-2xl font-semibold mb-2 text-gray-700">Step 2: Log Activity <span id="activity-counter">1</span> of 3</h2>
-                
+                <h2 class="text-2xl font-semibold mb-2 text-gray-700">Step 2: Log Activity <span
+                        id="activity-counter">1</span> of 3</h2>
+
                 <!-- General Activity Info -->
                 <div class="space-y-4">
                     <div>
-                        <label for="activityDate" class="block text-sm font-medium text-gray-700 mb-1">Activity Date</label>
+                        <label for="activityDate" class="block text-sm font-medium text-gray-700 mb-1">Activity
+                            Date</label>
                         <!-- Date picker -->
                         <input type="date" id="activityDate" required class="form-input">
                     </div>
                     <div>
-                        <label for="activityCategory" class="block text-sm font-medium text-gray-700 mb-1">Activity Category</label>
+                        <label for="activityCategory" class="block text-sm font-medium text-gray-700 mb-1">Activity
+                            Category</label>
                         <!-- Main category dropdown -->
                         <select id="activityCategory" onchange="showActivityForm()" class="form-input bg-white">
                             <option value="">-- Select a category --</option>
@@ -122,20 +138,24 @@
 
                 <!-- Dynamic Forms Container -->
                 <div id="activity-forms-container" class="mt-6 space-y-4">
-                    
+
                     <!-- Form: Employer Contact -->
                     <div id="form-employer_contact" class="hidden p-4 bg-gray-50 rounded-lg border border-gray-200">
                         <!-- ... (same as before) ... -->
                         <h3 class="text-lg font-semibold text-gray-800 mb-2 flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-teal-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
                             <span class="ml-2">Employer Contact</span>
                         </h3>
-                        <p class="text-sm text-gray-600 mb-4">Fill in all available details about your contact with the employer.</p>
+                        <p class="text-sm text-gray-600 mb-4">Fill in all available details about your contact with the
+                            employer.</p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <input type="text" id="ec-job-title" placeholder="Job Title or Ref #" class="form-input">
-                            <input type="text" id="ec-employer-name" placeholder="Employer / Business Name" class="form-input">
+                            <input type="text" id="ec-employer-name" placeholder="Employer / Business Name"
+                                class="form-input">
                             <select id="ec-contact-method" class="form-input bg-white">
                                 <option value="">-- How did you contact? --</option>
                                 <option value="Online">Online</option>
@@ -145,34 +165,43 @@
                                 <option value="By Mail">By Mail</option>
                                 <option value="Other">Other</option>
                             </select>
-                            <input type="text" id="ec-contact-other" placeholder="Other contact details" class="form-input">
+                            <input type="text" id="ec-contact-other" placeholder="Other contact details"
+                                class="form-input">
                             <select id="ec-contact-type" class="form-input bg-white">
                                 <option value="">-- Type of contact? --</option>
                                 <option value="Application/resume">Submitted Application/Resume</option>
                                 <option value="Interview">Attended Interview</option>
                                 <option value="Inquiry">Made an Inquiry</option>
                             </select>
-                            <input type="text" id="ec-website-email" placeholder="Website or Email Address" class="sm:col-span-2 form-input">
+                            <input type="text" id="ec-website-email" placeholder="Website or Email Address"
+                                class="sm:col-span-2 form-input">
                             <input type="text" id="ec-phone" placeholder="Phone Number" class="form-input">
                             <input type="text" id="ec-address" placeholder="Address (Street)" class="form-input">
                             <input type="text" id="ec-address-city" placeholder="[Address] City" class="form-input">
                             <input type="text" id="ec-address-state" placeholder="[Address] State" class="form-input">
                         </div>
                         <div class="mt-4">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Proof (Optional, e.g., application confirmation screenshot)</label>
-                            <div id="paste-box-employer_contact" class="paste-box p-4 rounded-lg text-center cursor-pointer">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Proof (Optional, e.g.,
+                                application confirmation screenshot)</label>
+                            <div id="paste-box-employer_contact"
+                                class="paste-box p-4 rounded-lg text-center cursor-pointer">
                                 <span class="text-gray-500">Click to upload or paste image</span>
-                                <input type="file" class="hidden" accept="image/*,.pdf" onchange="handleFileUpload(this, 'employer_contact')">
+                                <input type="file" class="hidden" accept="image/*,.pdf"
+                                    onchange="handleFileUpload(this, 'employer_contact')">
                                 <div class="preview-container mt-2"></div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Generic template for new dynamic forms -->
-                    <div id="form-worksource_online" class="hidden p-4 bg-gray-50 rounded-lg border border-gray-200 dynamic-form" data-category="worksource_online">
+                    <div id="form-worksource_online"
+                        class="hidden p-4 bg-gray-50 rounded-lg border border-gray-200 dynamic-form"
+                        data-category="worksource_online">
                         <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 17.25v-.228a4.5 4.5 0 00-.12-1.03l-2.268-9.64a3.375 3.375 0 00-3.285-2.602H7.923a3.375 3.375 0 00-3.285 2.602l-2.268 9.64a4.5 4.5 0 00-.12 1.03v.228m19.5 0a3 3 0 01-3 3H5.25a3 3 0 01-3-3m19.5 0a3 3 0 00-3-3H5.25a3 3 0 00-3 3m16.5 0h.008v.008h-.008v-.008zM12 15h.008v.008H12V15z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-teal-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21.75 17.25v-.228a4.5 4.5 0 00-.12-1.03l-2.268-9.64a3.375 3.375 0 00-3.285-2.602H7.923a3.375 3.375 0 00-3.285 2.602l-2.268 9.64a4.5 4.5 0 00-.12 1.03v.228m19.5 0a3 3 0 01-3 3H5.25a3 3 0 01-3-3m19.5 0a3 3 0 00-3-3H5.25a3 3 0 00-3 3m16.5 0h.008v.008h-.008v-.008zM12 15h.008v.008H12V15z" />
                             </svg>
                             <span class="ml-2">WorkSource Online Activity</span>
                         </h3>
@@ -184,10 +213,14 @@
                         <div class="details-container mt-4 space-y-4"></div>
                     </div>
 
-                    <div id="form-worksource_inperson" class="hidden p-4 bg-gray-50 rounded-lg border border-gray-200 dynamic-form" data-category="worksource_inperson">
+                    <div id="form-worksource_inperson"
+                        class="hidden p-4 bg-gray-50 rounded-lg border border-gray-200 dynamic-form"
+                        data-category="worksource_inperson">
                         <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-teal-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                             </svg>
                             <span class="ml-2">WorkSource In-Person Activity</span>
                         </h3>
@@ -197,10 +230,14 @@
                         <div class="details-container mt-4 space-y-4"></div>
                     </div>
 
-                    <div id="form-hiring_events_etc" class="hidden p-4 bg-gray-50 rounded-lg border border-gray-200 dynamic-form" data-category="hiring_events_etc">
+                    <div id="form-hiring_events_etc"
+                        class="hidden p-4 bg-gray-50 rounded-lg border border-gray-200 dynamic-form"
+                        data-category="hiring_events_etc">
                         <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-teal-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                             </svg>
                             <span class="ml-2">Hiring Events, Job Fairs, Clubs, etc.</span>
                         </h3>
@@ -209,11 +246,15 @@
                         </select>
                         <div class="details-container mt-4 space-y-4"></div>
                     </div>
-                    
-                    <div id="form-job_search_websites" class="hidden p-4 bg-gray-50 rounded-lg border border-gray-200 dynamic-form" data-category="job_search_websites">
+
+                    <div id="form-job_search_websites"
+                        class="hidden p-4 bg-gray-50 rounded-lg border border-gray-200 dynamic-form"
+                        data-category="job_search_websites">
                         <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-teal-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                             </svg>
                             <span class="ml-2">Job Search Websites & Assessments</span>
                         </h3>
@@ -223,11 +264,16 @@
                         <div class="details-container mt-4 space-y-4"></div>
                     </div>
 
-                    <div id="form-education_credentials" class="hidden p-4 bg-gray-50 rounded-lg border border-gray-200 dynamic-form" data-category="education_credentials">
+                    <div id="form-education_credentials"
+                        class="hidden p-4 bg-gray-50 rounded-lg border border-gray-200 dynamic-form"
+                        data-category="education_credentials">
                         <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-teal-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                             <span class="ml-2">Educational Videos & Credentials</span>
                         </h3>
@@ -236,13 +282,18 @@
                         </select>
                         <div class="details-container mt-4 space-y-4"></div>
                     </div>
-                    
-                    <div id="form-instructor_led_courses" class="hidden p-4 bg-gray-50 rounded-lg border border-gray-200 dynamic-form" data-category="instructor_led_courses">
+
+                    <div id="form-instructor_led_courses"
+                        class="hidden p-4 bg-gray-50 rounded-lg border border-gray-200 dynamic-form"
+                        data-category="instructor_led_courses">
                         <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-teal-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                                <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+                                <path
+                                    d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
                             </svg>
                             <span class="ml-2">Instructor-Led Courses</span>
                         </h3>
@@ -251,11 +302,15 @@
                         </select>
                         <div class="details-container mt-4 space-y-4"></div>
                     </div>
-                    
-                    <div id="form-self_paced_courses" class="hidden p-4 bg-gray-50 rounded-lg border border-gray-200 dynamic-form" data-category="self_paced_courses">
+
+                    <div id="form-self_paced_courses"
+                        class="hidden p-4 bg-gray-50 rounded-lg border border-gray-200 dynamic-form"
+                        data-category="self_paced_courses">
                         <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V7.5a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 7.5v7.5a2.25 2.25 0 002.25 2.25h.31e" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-teal-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V7.5a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 7.5v7.5a2.25 2.25 0 002.25 2.25h.31e" />
                             </svg>
                             <span class="ml-2">Self-Paced Courses</span>
                         </h3>
@@ -264,11 +319,15 @@
                         </select>
                         <div class="details-container mt-4 space-y-4"></div>
                     </div>
-                    
-                    <div id="form-app_based_work" class="hidden p-4 bg-gray-50 rounded-lg border border-gray-200 dynamic-form" data-category="app_based_work">
+
+                    <div id="form-app_based_work"
+                        class="hidden p-4 bg-gray-50 rounded-lg border border-gray-200 dynamic-form"
+                        data-category="app_based_work">
                         <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-teal-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
                             </svg>
                             <span class="ml-2">App-Based Driving or Delivery Work</span>
                         </h3>
@@ -277,11 +336,15 @@
                         </select>
                         <div class="details-container mt-4 space-y-4"></div>
                     </div>
-                    
-                    <div id="form-private_career_coach" class="hidden p-4 bg-gray-50 rounded-lg border border-gray-200 dynamic-form" data-category="private_career_coach">
+
+                    <div id="form-private_career_coach"
+                        class="hidden p-4 bg-gray-50 rounded-lg border border-gray-200 dynamic-form"
+                        data-category="private_career_coach">
                         <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 00-12.12 0M18 18.72a9.094 9.094 0 01-12.12 0m12.12 0A9.094 9.094 0 009.67 3.75m1.06-1.06l-1.06 1.06a9.094 9.094 0 00-6.18 6.18l-1.06 1.06m5.5-5.5a9.094 9.094 0 016.18 6.18l1.06 1.06m-5.5-5.5a9.094 9.094 0 00-6.18-6.18l-1.06-1.06" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-teal-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M18 18.72a9.094 9.094 0 00-12.12 0M18 18.72a9.094 9.094 0 01-12.12 0m12.12 0A9.094 9.094 0 009.67 3.75m1.06-1.06l-1.06 1.06a9.094 9.094 0 00-6.18 6.18l-1.06 1.06m5.5-5.5a9.094 9.094 0 016.18 6.18l1.06 1.06m-5.5-5.5a9.094 9.094 0 00-6.18-6.18l-1.06-1.06" />
                             </svg>
                             <span class="ml-2">Private Career Coach / Agency</span>
                         </h3>
@@ -290,11 +353,15 @@
                         </select>
                         <div class="details-container mt-4 space-y-4"></div>
                     </div>
-                    
-                    <div id="form-wioa_programs" class="hidden p-4 bg-gray-50 rounded-lg border border-gray-200 dynamic-form" data-category="wioa_programs">
+
+                    <div id="form-wioa_programs"
+                        class="hidden p-4 bg-gray-50 rounded-lg border border-gray-200 dynamic-form"
+                        data-category="wioa_programs">
                         <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-teal-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5z" />
                             </svg>
                             <span class="ml-2">WIOA Programs and Services</span>
                         </h3>
@@ -303,11 +370,15 @@
                         </select>
                         <div class="details-container mt-4 space-y-4"></div>
                     </div>
-                    
-                    <div id="form-vocational_rehab" class="hidden p-4 bg-gray-50 rounded-lg border border-gray-200 dynamic-form" data-category="vocational_rehab">
+
+                    <div id="form-vocational_rehab"
+                        class="hidden p-4 bg-gray-50 rounded-lg border border-gray-200 dynamic-form"
+                        data-category="vocational_rehab">
                         <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-teal-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
                             </svg>
                             <span class="ml-2">Vocational Rehabilitation (DSB or DVR)</span>
                         </h3>
@@ -321,10 +392,12 @@
 
                 <!-- Navigation -->
                 <div class="flex justify-between mt-8">
-                    <button onclick="prevStep()" id="prev-button" class="bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-lg shadow-sm hover:bg-gray-300 transition duration-300">
+                    <button onclick="prevStep()" id="prev-button"
+                        class="bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-lg shadow-sm hover:bg-gray-300 transition duration-300">
                         Back
                     </button>
-                    <button onclick="nextActivity()" id="next-button" class="bg-gradient-to-r from-teal-500 to-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:from-teal-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
+                    <button onclick="nextActivity()" id="next-button"
+                        class="bg-gradient-to-r from-teal-500 to-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:from-teal-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
                         Next Activity
                     </button>
                 </div>
@@ -333,15 +406,17 @@
             <!-- Step 3: Review -->
             <section id="step-review" class="hidden">
                 <h2 class="text-2xl font-semibold mb-4 text-gray-700">Step 3: Review & Download</h2>
-                <p class="text-gray-600 mb-6">Please review your information. When you're ready, click the button to generate your ZIP file.</p>
-                
+                <p class="text-gray-600 mb-6">Please review your information. When you're ready, click the button to
+                    generate your ZIP file.</p>
+
                 <!-- Review Summary -->
                 <div class="space-y-6">
                     <!-- General Info Review -->
                     <div>
                         <h3 class="text-lg font-semibold text-gray-800 border-b pb-2 mb-3">General Info</h3>
                         <div class="bg-gray-50 p-4 rounded-lg">
-                            <p><strong>Week Ending:</strong> <span id="review-weekEnding" class="text-gray-700"></span></p>
+                            <p><strong>Week Ending:</strong> <span id="review-weekEnding" class="text-gray-700"></span>
+                            </p>
                             <p><strong>Name:</strong> <span id="review-claimantName" class="text-gray-700"></span></p>
                             <p><strong>ID/SSN:</strong> <span id="review-claimantId" class="text-gray-700"></span></p>
                         </div>
@@ -351,11 +426,13 @@
                         <!-- Activity reviews will be injected here by JS -->
                     </div>
                 </div>
-                
-                <button onclick="generateZip()" class="w-full mt-8 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:from-green-600 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105">
+
+                <button onclick="generateZip()"
+                    class="w-full mt-8 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:from-green-600 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105">
                     Generate & Download ZIP
                 </button>
-                <button onclick="startOver()" class="w-full mt-4 bg-gray-200 text-gray-700 font-bold py-3 px-6 rounded-lg shadow-sm hover:bg-gray-300 transition duration-300">
+                <button onclick="startOver()"
+                    class="w-full mt-4 bg-gray-200 text-gray-700 font-bold py-3 px-6 rounded-lg shadow-sm hover:bg-gray-300 transition duration-300">
                     Start Over
                 </button>
             </section>
@@ -363,14 +440,18 @@
         </main>
 
         <!-- Custom Modal for Errors -->
-        <div id="error-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 p-4">
+        <div id="error-modal"
+            class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 p-4">
             <div class="bg-white rounded-lg shadow-xl max-w-sm w-full p-6 text-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-500 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-500 mx-auto mb-4" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <h3 class="text-2xl font-bold text-red-600 mb-4">Error</h3>
                 <p id="error-message" class="text-gray-700 mb-6">Something went wrong.</p>
-                <button onclick="closeModal('error-modal')" class="bg-red-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-red-700 transition duration-300">
+                <button onclick="closeModal('error-modal')"
+                    class="bg-red-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-red-700 transition duration-300">
                     Close
                 </button>
             </div>
@@ -391,907 +472,24 @@
     <script>
         // --- PDF and ZIP Libraries ---
         const { PDFDocument, rgb } = PDFLib;
-        
-        // --- Global State ---
-        // UPDATED: Changed to the local asset path
-        const BLANK_PDF_URL = 'assets/ESD-job-search-log-251009_0.pdf';
-        
-        let currentActivityIndex = 0;
-        let claimWeek = {
-            weekEnding: '',
-            name: '',
-            idOrSsn: '',
-            activities: [
-                // Storing more structured data now
-                { category: null, activityId: null, date: '', details: {}, proofFile: null, proofFileName: '' },
-                { category: null, activityId: null, date: '', details: {}, proofFile: null, proofFileName: '' },
-                { category: null, activityId: null, date: '', details: {}, proofFile: null, proofFileName: '' }
-            ]
-        };
 
-        // --- NEW: Activity Database (from PDF) ---
-        const activityDatabase = {
-            'worksource_online': [
-                { id: 'ws_online_setup_account', text: 'Set up a WorkSource job seeker account', doc: 'A screenshot of or link to your profile.', proof: 'required', fields: [{id: 'link', ph: 'Link to profile'}] },
-                { id: 'ws_online_upload_resume', text: 'Upload resume to WorkSource & make searchable', doc: 'A screenshot of or link to your resume.', proof: 'required', fields: [{id: 'link', ph: 'Link to resume'}] },
-                { id: 'ws_online_virtual_workshop', text: 'Join a virtual WorkSource workshop', doc: 'Name of the workshop, Name of the facilitator, A screenshot of proof of completion.', proof: 'required', fields: [{id: 'workshop_name', ph: 'Workshop Name'}, {id: 'facilitator_name', ph: 'Facilitator Name'}] },
-                { id: 'ws_online_career_profile', text: 'Complete the WorkSource career profile tool', doc: 'A screenshot of proof of completion.', proof: 'required' },
-                { id: 'ws_online_resea', text: 'Participate in RESEA initial or follow-up', doc: 'Name of activity, date, and where or how completed.', proof: 'none', fields: [{id: 'meeting_type', ph: 'Meeting Type'}] }
-            ],
-            'worksource_inperson': [
-                { id: 'ws_inperson_workshop', text: 'Join an in-person WorkSource workshop', doc: 'Name, date and location of the workshop.', proof: 'none', fields: [{id: 'workshop_name', ph: 'Workshop Name'}, {id: 'office_name', ph: 'Office Name'}, {id: 'office_city', ph: 'Office City'}, {id: 'office_state', ph: 'Office State'}] },
-                { id: 'ws_inperson_specialist', text: 'Meet with a WorkSource specialist/coach', doc: 'Name of the specialist or coach. Date and time you met.', proof: 'none', fields: [{id: 'specialist_name', ph: 'Specialist/Coach Name'}, {id: 'office_name', ph: 'Office Name'}, {id: 'office_city', ph: 'Office City'}, {id: 'office_state', ph: 'Office State'}] },
-                { id: 'ws_inperson_job_fair', text: 'Participate in WorkSource job fair/club/event', doc: 'Date and location of the job fair. Name and contact information of the employer you spoke to.', proof: 'none', fields: [{id: 'event_name', ph: 'Event Name'}, {id: 'office_name', ph: 'Office Name'}, {id: 'office_city', ph: 'Office City'}, {id: 'office_state', ph: 'Office State'}, {id: 'employer_contact', ph: 'Employer Contacted'}] },
-                { id: 'ws_inperson_resea', text: 'Participate in RESEA initial or follow-up', doc: 'Name of activity, date, and where or how completed.', proof: 'none', fields: [{id: 'meeting_type', ph: 'Meeting Type'}, {id: 'office_name', ph: 'Office Name'}, {id: 'office_city', ph: 'Office City'}, {id: 'office_state', ph: 'Office State'}] }
-            ],
-            'hiring_events_etc': [
-                { id: 'he_job_fair', text: 'Attend in-person/virtual job fair or hiring event', doc: 'Your registration letter or email. Include employer name, contact info, and how you made contact.', proof: 'required', fields: [{id: 'event_name', ph: 'Event Name'}, {id: 'employer_contact', ph: 'Employer Contacted'}, {id: 'contact_info', ph: 'Employer Contact Info'}, {id: 'contact_type', ph: 'Employer Contact Type'}] },
-                { id: 'he_30_second_speech', text: 'Prepare and practice a 30-second speech', doc: 'A copy of your speech. (Uploading a doc/screenshot is optional).', proof: 'optional', fields: [{id: 'speech_text', ph: 'Paste your speech here (optional)', type: 'textarea'}] },
-                { id: 'he_job_club', text: 'Participate in a private or community job club', doc: 'A letter or email from the club leader or sponsor.', proof: 'required', fields: [{id: 'club_name', ph: 'Job Club Name'}, {id: 'leader_name', ph: 'Leader/Sponsor Name'}] },
-                { id: 'he_internship', text: 'Participate in private-sector work experience/internship', doc: 'A letter from the employer.', proof: 'required', fields: [{id: 'employer_name', ph: 'Employer Name'}] },
-                { id: 'he_job_shadowing', text: 'Complete a virtual or remote job shadowing', doc: 'Copy of a letter or email from the person you shadowed.', proof: 'required', fields: [{id: 'person_shadowed', ph: 'Person Shadowed'}, {id: 'company', ph: 'Company'}] },
-                { id: 'he_ojt', text: 'Participate in private on-the-job-training (OJT)', doc: 'Name of company, Position, Type of activity, Where or how shadowing was completed.', proof: 'none', fields: [{id: 'company', ph: 'Company'}, {id: 'position', ph: 'Position'}] }
-            ],
-            'job_search_websites': [
-                { id: 'jsw_update_account', text: 'Set up/update account on job search website (Indeed, LinkedIn, etc.)', doc: 'A screenshot of or link to your account page.', proof: 'optional', fields: [{id: 'link', ph: 'Link to account page'}, {id: 'update_details', ph: 'Update Details'}] },
-                { id: 'jsw_post_resume', text: 'Set up/update account, post resume/cover letter (Monster, etc.)', doc: 'A screenshot of or link to your account page.', proof: 'required', fields: [{id: 'link', ph: 'Link to account page'}] },
-                { id: 'jsw_interest_inventory', text: 'Complete online interest inventory (Strong, My Next Move, etc.)', doc: 'A screenshot of your results.', proof: 'required', fields: [{id: 'inventory_name', ph: 'Name of Inventory'}] },
-                { id: 'jsw_workkeys', text: 'Complete an ACT WorkKeys assessment', doc: 'A screenshot of your results.', proof: 'required' }
-            ],
-            'education_credentials': [
-                { id: 'ec_watch_video', text: 'Watch an online video on a job search topic', doc: 'A screenshot of the video launch page.', proof: 'required', fields: [{id: 'link', ph: 'Link to video'}] },
-                { id: 'ec_work_readiness', text: 'Get a National Work Readiness Credential', doc: 'A screenshot of proof of completion.', proof: 'required' },
-                { id: 'ec_linkedin_learning', text: 'Complete LinkedIn Learning or similar certified course', doc: 'A receipt for the course or a screenshot of proof of completion.', proof: 'required', fields: [{id: 'course_name', ph: 'Course Name'}] },
-                { id: 'ec_labor_market_research', text: 'Conduct labor market research on esd.wa.gov', doc: 'Take a screenshot of the information.', proof: 'required' }
-            ],
-            'instructor_led_courses': [
-                { id: 'ilc_esl', text: 'Instructor-led ESL course or class', doc: 'Name, date and location of the class. A receipt or screenshot of proof of completion.', proof: 'required', fields: [{id: 'class_name', ph: 'Class Name'}, {id: 'location', ph: 'Location'}] },
-                { id: 'ilc_abe', text: 'Instructor-led Adult Basic Education (ABE) course or class', doc: 'Name, date and location of the class. A receipt or screenshot of proof of completion.', proof: 'required', fields: [{id: 'class_name', ph: 'Class Name'}, {id: 'location', ph: 'Location'}] },
-                { id: 'ilc_ged', text: 'Instructor-led General Educational Development (GED) course or class', doc: 'Name, date and location of the class. A receipt or screenshot of proof of completion.', proof: 'required', fields: [{id: 'class_name', ph: 'Class Name'}, {id: 'location', ph: 'Location'}] },
-                { id: 'ilc_skills', text: 'Instructor-led occupational skills or computer course', doc: 'A receipt for the course or a screenshot of proof of completion.', proof: 'required', fields: [{id: 'course_name', ph: 'Course Name'}] },
-                { id: 'ilc_computer_lit', text: 'Instructor-led computer literacy course or class', doc: 'A receipt for the course or a screenshot of proof of completion.', proof: 'required', fields: [{id: 'class_name', ph: 'Class Name'}] }
-            ],
-            'self_paced_courses': [
-                { id: 'spc_esl', text: 'Self-paced ESL course or class', doc: 'A receipt for the course or a screenshot of proof of completion.', proof: 'required', fields: [{id: 'course_name', ph: 'Course Name'}] },
-                { id: 'spc_abe', text: 'Self-paced Adult Basic Education (ABE) course or class', doc: 'A receipt for the course or a screenshot of proof of completion.', proof: 'required', fields: [{id: 'course_name', ph: 'Course Name'}] },
-                { id: 'spc_ged', text: 'Self-paced General Educational Development (GED) course or class', doc: 'A receipt for the course or a screenshot of proof of completion.', proof: 'required', fields: [{id: 'course_name', ph: 'Course Name'}] },
-                { id: 'spc_skills', text: 'Self-paced occupational skills or computer course', doc: 'A receipt for the course or a screenshot of proof of completion.', proof: 'required', fields: [{id: 'course_name', ph: 'Course Name'}] },
-                { id: 'spc_computer_lit', text: 'Self-paced computer literacy course or class', doc: 'A receipt for the course or a screenshot of proof of completion.', proof: 'required', fields: [{id: 'course_name', ph: 'Course Name'}] }
-            ],
-            'app_based_work': [
-                { id: 'abw_setup_account', text: 'Set up/activate account (Uber, Lyft, Doordash, etc.)', doc: 'A screenshot of: required license renewal, completed on-boarding, completed vehicle inspection, or contact with support.', proof: 'required', fields: [{id: 'platform_name', ph: 'Platform (Uber, Lyft, etc.)'}] },
-                { id: 'abw_active_efforts', text: 'Other activities showing ongoing/active efforts (logging in, available for work)', doc: 'Screenshots demonstrating ongoing and active efforts to log-in and be available for work.', proof: 'required', fields: [{id: 'platform_name', ph: 'Platform (Uber, Lyft, etc.)'}] }
-            ],
-            'private_career_coach': [
-                { id: 'pcc_signup', text: 'Sign up with a private career coach or service', doc: 'A screenshot of your agreement.', proof: 'required', fields: [{id: 'coach_name', ph: 'Coach or Service Name'}] },
-                { id: 'pcc_register_agency', text: 'Register with placement agency/recruiter/headhunter', doc: 'A screenshot of your agreement or registration.', proof: 'required', fields: [{id: 'agency_name', ph: 'Agency Name'}] },
-                { id: 'pcc_webinar', text: 'Complete job search webinar/course by placement agency', doc: 'A screenshot of your course completion.', proof: 'required', fields: [{id: 'course_name', ph: 'Course Name'}, {id: 'agency_name', ph: 'Agency Name'}] }
-            ],
-            'wioa_programs': [
-                { id: 'wioa_enroll_plan', text: 'Enroll in WIOA Title I-B & develop Individual Employment Plan', doc: 'The activity name, the date and where or how you completed it.', proof: 'none' },
-                { id: 'wioa_enroll_service', text: 'Enroll in WIOA Title I-B & receive basic/individualized career service', doc: 'The activity name, the date and where or how you completed it.', proof: 'none' },
-                { id: 'wioa_incumbent_training', text: 'Enroll in WIOA Title I-B incumbent worker training', doc: 'The activity name, the date and where or how you completed it.', proof: 'none' },
-                { id: 'wioa_work_experience', text: 'Enroll in WIOA Title I-B paid/unpaid work experience or internship', doc: 'The activity name, the date and where or how you completed it.', proof: 'none' },
-                { id: 'wioa_ojt', text: 'Enroll in WIOA Title I-B on-the-job training', doc: 'The activity name, the date and where or how you completed it.', proof: 'none' }
-            ],
-            'vocational_rehab': [
-                { id: 'vr_dsb_readiness', text: 'Dept. of Services for the Blind (DSB): Vocational readiness', doc: 'A copy of your email or letter from the counselor.', proof: 'required' },
-                { id: 'vr_dsb_search', text: 'Dept. of Services for the Blind (DSB): Job search', doc: 'A copy of your email or letter from the counselor.', proof: 'required' },
-                { id: 'vr_dsb_adjustment', text: 'Dept. of Services for the Blind (DSB): Adjustment to disability', doc: 'A copy of your email or letter from the counselor.', proof: 'required' },
-                { id: 'vr_dsb_adaptive', text: 'Dept. of Services for the Blind (DSB): Adaptive skills activity', doc: 'A copy of your email or letter from the counselor.', proof: 'required' },
-                { id: 'vr_dvr_readiness', text: 'Division of Vocational Rehabilitation (DVR): Vocational readiness', doc: 'A copy of your email or letter from the counselor.', proof: 'required' },
-                { id: 'vr_dvr_search', text: 'Division of Vocational Rehabilitation (DVR): Job search activity', doc: 'A copy of your email or letter from the counselor.', proof: 'required' }
-            ]
-        };
-
-        // --- DOM Elements ---
-        const steps = {
-            launch: document.getElementById('step-launch'),
-            welcome: document.getElementById('step-welcome'),
-            activity: document.getElementById('step-activity'),
-            review: document.getElementById('step-review')
-        };
-        const activityCounter = document.getElementById('activity-counter');
-        const nextButton = document.getElementById('next-button');
-        const prevButton = document.getElementById('prev-button');
-        const loadingOverlay = document.getElementById('loading-overlay');
-        const errorModal = document.getElementById('error-modal');
-        const errorMessage = document.getElementById('error-message');
-
-        // --- Date Picker Helpers ---
-        function setThisWeek() {
-            const weekEndingInput = document.getElementById('weekEnding');
-            const upcomingSaturday = getUpcomingSaturday();
-            // Format as YYYY-MM-DD using local time
-            const yyyy = upcomingSaturday.getFullYear();
-            const mm = String(upcomingSaturday.getMonth() + 1).padStart(2, '0');
-            const dd = String(upcomingSaturday.getDate()).padStart(2, '0');
-            weekEndingInput.value = `${yyyy}-${mm}-${dd}`;
-        }
-
-        function getUpcomingSaturday() {
-            const today = new Date();
-            const dayOfWeek = today.getDay(); // 0 (Sun) - 6 (Sat)
-            const daysUntilSaturday = 6 - dayOfWeek;
-            const saturday = new Date(today);
-            saturday.setDate(today.getDate() + daysUntilSaturday);
-            return saturday;
-        }
-
-        // --- Navigation ---
-        function showStep(stepName) {
-            Object.values(steps).forEach(step => step.classList.add('hidden'));
-            if (steps[stepName]) {
-                steps[stepName].classList.remove('hidden');
-            }
-        }
-
-        function startLogging() {
-            const weekEnding = document.getElementById('weekEnding').value.trim();
-            const claimantName = document.getElementById('claimantName').value.trim();
-            const claimantId = document.getElementById('claimantId').value.trim();
-
-            if (!weekEnding || !claimantName || !claimantId) {
-                showError("Please fill in all your information to continue.");
-                return;
-            }
-            
-            // Format date to MM/DD/YYYY for storage
-            claimWeek.weekEnding = formatDate(weekEnding);
-            claimWeek.name = claimantName;
-            claimWeek.idOrSsn = claimantId;
-
-            currentActivityIndex = 0;
-            loadActivity(currentActivityIndex);
-            showStep('activity');
-        }
-
-        function nextActivity() {
-            if (!saveActivity(currentActivityIndex)) {
-                return; // Validation failed
-            }
-
-            if (currentActivityIndex < 2) {
-                currentActivityIndex++;
-                loadActivity(currentActivityIndex);
-            } else {
-                populateReview();
-                showStep('review');
-            }
-        }
-
-        function prevStep() {
-            saveActivity(currentActivityIndex); // Save changes before going back
-            if (currentActivityIndex > 0) {
-                currentActivityIndex--;
-                loadActivity(currentActivityIndex);
-            } else {
-                showStep('welcome');
-            }
-        }
-        
-        function startOver() {
-             claimWeek = {
-                weekEnding: '', name: '', idOrSsn: '',
-                activities: [
-                    { category: null, activityId: null, date: '', details: {}, proofFile: null, proofFileName: '' },
-                    { category: null, activityId: null, date: '', details: {}, proofFile: null, proofFileName: '' },
-                    { category: null, activityId: null, date: '', details: {}, proofFile: null, proofFileName: '' }
-                ]
-            };
-            currentActivityIndex = 0;
-            document.getElementById('weekEnding').value = '';
-            document.getElementById('claimantName').value = '';
-            document.getElementById('claimantId').value = '';
-            resetActivityForm();
-            showStep('launch'); // Go back to launch page
-        }
-
-        // --- Activity Form Logic (NEW) ---
-        function showActivityForm() {
-            const selectedCategory = document.getElementById('activityCategory').value;
-            // Hide all forms
-            document.querySelectorAll('#activity-forms-container > div').forEach(form => {
-                form.classList.add('hidden');
-            });
-            // Show the selected form
-            if (selectedCategory) {
-                const formToShow = document.getElementById(`form-${selectedCategory}`);
-                if (formToShow) {
-                    formToShow.classList.remove('hidden');
-                }
-            }
-        }
-
-        // Populates the dynamic dropdowns on page load
-        function initializeActivityDropdowns() {
-            document.querySelectorAll('.dynamic-form').forEach(form => {
-                const category = form.dataset.category;
-                const select = form.querySelector('.activity-select');
-                const activities = activityDatabase[category];
-                
-                if (activities) {
-                    activities.forEach(activity => {
-                        const option = document.createElement('option');
-                        option.value = activity.id;
-                        option.textContent = activity.text;
-                        select.appendChild(option);
-                    });
-                }
-            });
-        }
-        
-        // Called when a specific activity is selected from a dropdown
-        function updateActivityDetails(selectElement) {
-            const form = selectElement.closest('.dynamic-form');
-            const category = form.dataset.category;
-            const activityId = selectElement.value;
-            const detailsContainer = form.querySelector('.details-container');
-            
-            // Clear previous details
-            detailsContainer.innerHTML = '';
-            
-            if (!activityId) return; // User selected "-- Select --"
-            
-            const activity = activityDatabase[category].find(a => a.id === activityId);
-            if (!activity) return;
-
-            // 1. Add documentation box
-            const docBox = document.createElement('div');
-            docBox.className = 'doc-box';
-            docBox.innerHTML = `<p><strong>Documentation Required:</strong> ${activity.doc}</p>`;
-            detailsContainer.appendChild(docBox);
-
-            // 2. Add dynamic text fields
-            if (activity.fields) {
-                activity.fields.forEach(field => {
-                    if (field.type === 'textarea') {
-                        const textarea = document.createElement('textarea');
-                        textarea.id = `detail-${field.id}`;
-                        textarea.placeholder = field.ph;
-                        textarea.className = 'form-input h-24';
-                        detailsContainer.appendChild(textarea);
-                    } else {
-                        const input = document.createElement('input');
-                        input.type = 'text';
-                        input.id = `detail-${field.id}`;
-                        input.placeholder = field.ph;
-                        input.className = 'form-input';
-                        detailsContainer.appendChild(input);
-                    }
-                });
-            }
-
-            // 3. Add proof upload box (if needed)
-            if (activity.proof !== 'none') {
-                const label = document.createElement('label');
-                label.className = 'block text-sm font-medium text-gray-700 mb-2';
-                label.textContent = activity.proof === 'required' ? 'Proof (Required)' : 'Proof (Optional)';
-                
-                const pasteBox = document.createElement('div');
-                pasteBox.id = `paste-box-${activity.id}`; // Unique ID for the paste box
-                pasteBox.className = 'paste-box p-4 rounded-lg text-center cursor-pointer';
-                pasteBox.innerHTML = `
-                    <span class="text-gray-500">Click to upload or paste image</span>
-                    <input type="file" class="hidden" accept="image/*,.pdf" onchange="handleFileUpload(this, '${activity.id}')">
-                    <div class="preview-container mt-2"></div>
-                `;
-                
-                // Re-attach paste/drag/drop listeners to this new element
-                setupPasteBox(pasteBox, activity.id);
-                
-                detailsContainer.appendChild(label);
-                detailsContainer.appendChild(pasteBox);
-            }
-        }
-
-        function saveActivity(index) {
-            const activity = claimWeek.activities[index];
-            
-            const dateInput = document.getElementById('activityDate').value.trim();
-            const category = document.getElementById('activityCategory').value;
-
-            if (!dateInput || !category) {
-                showError("Please select an activity date and category.");
-                return false;
-            }
-
-            activity.date = formatDate(dateInput); // Format to MM/DD/YYYY
-            activity.category = category;
-            activity.details = {};
-            activity.activityId = null;
-
-            if (category === 'employer_contact') {
-                activity.activityId = 'employer_contact'; // Special case
-                activity.details = {
-                    jobTitle: document.getElementById('ec-job-title').value,
-                    employerName: document.getElementById('ec-employer-name').value,
-                    contactMethod: document.getElementById('ec-contact-method').value,
-                    contactMethodOther: document.getElementById('ec-contact-other').value,
-                    contactMethodOther: document.getElementById('ec-contact-other').value,
-                    contactType: document.getElementById('ec-contact-type').value,
-                    websiteEmail: document.getElementById('ec-website-email').value,
-                    phone: document.getElementById('ec-phone').value,
-                    address: document.getElementById('ec-address').value,
-                    addressCity: document.getElementById('ec-address-city').value,
-                    addressState: document.getElementById('ec-address-state').value,
-                };
-                if (!activity.details.employerName) {
-                     showError("Employer Name is required for this activity.");
-                     return false;
-                }
-            } else {
-                // Handle dynamic forms
-                const form = document.getElementById(`form-${category}`);
-                const select = form.querySelector('.activity-select');
-                const activityId = select.value;
-                
-                if (!activityId) {
-                    showError("Please select a specific activity from the dropdown.");
-                    return false;
-                }
-                
-                const activityDef = activityDatabase[category].find(a => a.id === activityId);
-                activity.activityId = activityId;
-                activity.details['activityName'] = activityDef.text;
-                activity.details['documentation'] = activityDef.doc;
-
-                // Save dynamic fields
-                if (activityDef.fields) {
-                    activityDef.fields.forEach(field => {
-                        const input = form.querySelector(`#detail-${field.id}`);
-                        if (input) {
-                            activity.details[field.id] = input.value;
-                        }
-                    });
-                }
-                
-                // Check for required proof
-                if (activityDef.proof === 'required' && !activity.proofFile) {
-                    showError("A proof file (screenshot, PDF, etc.) is required for this activity.");
-                    return false;
-                }
-            }
-            
-            return true;
-        }
-
-        function loadActivity(index) {
-            resetActivityForm();
-            
-            const activity = claimWeek.activities[index];
-
-            // Reformat date from MM/DD/YYYY to YYYY-MM-DD for date input
-            document.getElementById('activityDate').value = reformatDateForInput(activity.date);
-            document.getElementById('activityCategory').value = activity.category || '';
-            
-            showActivityForm(); // Show the correct form section
-            
-            if (activity.category === 'employer_contact') {
-                document.getElementById('ec-job-title').value = activity.details.jobTitle || '';
-                document.getElementById('ec-employer-name').value = activity.details.employerName || '';
-                document.getElementById('ec-contact-method').value = activity.details.contactMethod || '';
-                document.getElementById('ec-contact-other').value = activity.details.contactMethodOther || '';
-                document.getElementById('ec-contact-other').value = activity.details.contactMethodOther || '';
-                document.getElementById('ec-contact-type').value = activity.details.contactType || '';
-                document.getElementById('ec-website-email').value = activity.details.websiteEmail || '';
-                document.getElementById('ec-phone').value = activity.details.phone || '';
-                document.getElementById('ec-address').value = activity.details.address || '';
-                document.getElementById('ec-address-city').value = activity.details.addressCity || '';
-                document.getElementById('ec-address-state').value = activity.details.addressState || '';
-                document.getElementById('ec-address-city').value = activity.details.addressCity || '';
-                document.getElementById('ec-address-state').value = activity.details.addressState || '';
-                if (activity.proofFile) {
-                    showFilePreview(document.getElementById('paste-box-employer_contact'), activity.proofFile, activity.proofFileName);
-                }
-            } else if (activity.category && activity.activityId) {
-                // Load dynamic form
-                const form = document.getElementById(`form-${activity.category}`);
-                const select = form.querySelector('.activity-select');
-                select.value = activity.activityId;
-                
-                // Trigger detail population
-                updateActivityDetails(select);
-                
-                // Re-populate dynamic fields
-                const activityDef = activityDatabase[activity.category].find(a => a.id === activity.activityId);
-                if (activityDef.fields) {
-                    activityDef.fields.forEach(field => {
-                        const input = form.querySelector(`#detail-${field.id}`);
-                        if (input) {
-                            input.value = activity.details[field.id] || '';
-                        }
-                    });
-                }
-                
-                // Show file preview
-                if (activity.proofFile) {
-                    const pasteBox = form.querySelector('.paste-box');
-                    if(pasteBox) {
-                        showFilePreview(pasteBox, activity.proofFile, activity.proofFileName);
-                    }
-                }
-            }
-
-            activityCounter.textContent = index + 1;
-            nextButton.textContent = (index === 2) ? 'Review & Finish' : 'Next Activity';
-            prevButton.style.display = (index === 0) ? 'none' : 'inline-block';
-        }
-
-        function resetActivityForm() {
-            document.getElementById('activityDate').value = '';
-            document.getElementById('activityCategory').value = '';
-            
-            // Clear all dynamic form inputs
-            document.querySelectorAll('.dynamic-form').forEach(form => {
-                form.querySelector('.activity-select').selectedIndex = 0;
-                form.querySelector('.details-container').innerHTML = '';
-            });
-            
-            // Clear employer contact form
-            document.getElementById('form-employer_contact').querySelectorAll('input, select').forEach(el => {
-                if (el.tagName === 'SELECT') el.selectedIndex = 0;
-                else el.value = '';
-            });
-            const ecPasteBox = document.getElementById('paste-box-employer_contact');
-            ecPasteBox.querySelector('.preview-container').innerHTML = '';
-            ecPasteBox.querySelector('span').classList.remove('hidden');
-
-            showActivityForm(); // Hides all forms
-        }
-
-
-        // --- File & Paste Handling ---
-        function setupPasteBox(box, id) {
-             // Click to trigger file input
-            box.addEventListener('click', (e) => {
-                if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'IMG' && e.target.tagName !== 'A') {
-                    box.querySelector('input[type="file"]').click();
-                }
-            });
-
-            // Drag/Drop events
-            box.addEventListener('dragover', (e) => {
-                e.preventDefault();
-                box.classList.add('highlight');
-            });
-            box.addEventListener('dragleave', (e) => {
-                e.preventDefault();
-                box.classList.remove('highlight');
-            });
-            box.addEventListener('drop', (e) => {
-                e.preventDefault();
-                box.classList.remove('highlight');
-                if (e.dataTransfer.files.length > 0) {
-                    const file = e.dataTransfer.files[0];
-                    handleFile(box, file);
-                }
-            });
-        }
-
-        // Setup for the static employer contact box
-        document.addEventListener('DOMContentLoaded', () => {
-             setupPasteBox(document.getElementById('paste-box-employer_contact'), 'employer_contact');
-             initializeActivityDropdowns();
-        });
-        
-        // Global paste handler
-        document.addEventListener('paste', (e) => {
-            const activeForm = document.querySelector('#activity-forms-container > div:not(.hidden)');
-            if (!activeForm) return; // Not on an activity form
-
-            const pasteBox = activeForm.querySelector('.paste-box');
-            if (!pasteBox) return; // No paste box on this form
-            
-            // Check if the paste is happening inside an input
-            const activeElement = document.activeElement;
-            if (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA') {
-                return; // Don't intercept paste in text fields
-            }
-            
-            e.preventDefault();
-            const items = e.clipboardData.items;
-            for (let i = 0; i < items.length; i++) {
-                if (items[i].type.indexOf('image') !== -1) {
-                    const file = items[i].getAsFile();
-                    file.name = `pasted_image_${Date.now()}.png`;
-                    handleFile(pasteBox, file);
-                    break;
-                }
-            }
-        });
-        
-        
-        function handleFileUpload(inputElement, id) {
-            if (inputElement.files.length > 0) {
-                const file = inputElement.files[0];
-                // Find the paste box by id (which is now `paste-box-${activity.id}` or `paste-box-employer_contact`)
-                const pasteBox = document.getElementById(`paste-box-${id}`);
-                handleFile(pasteBox, file);
-            }
-        }
-
-        function handleFile(pasteBox, file) {
-            const index = currentActivityIndex;
-            // Save the file to the state
-            claimWeek.activities[index].proofFile = file;
-            const saneFileName = file.name.replace(/[^a-z0-9._-]/gi, '_');
-            claimWeek.activities[index].proofFileName = `proof_${index + 1}_${saneFileName}`;
-            showFilePreview(pasteBox, file, claimWeek.activities[index].proofFileName);
-        }
-        
-        function showFilePreview(pasteBox, file, fileName) {
-            const previewContainer = pasteBox.querySelector('.preview-container');
-            const textSpan = pasteBox.querySelector('span');
-            
-            previewContainer.innerHTML = ''; // Clear previous preview
-            textSpan.classList.add('hidden'); // Hide "Click to upload..." text
-
-            if (file.type.startsWith('image/')) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    const img = document.createElement('img');
-                    img.src = e.target.result;
-                    img.className = 'rounded-lg inline-block';
-                    previewContainer.appendChild(img);
-                };
-                reader.readAsDataURL(file);
-            } else {
-                const fileInfo = document.createElement('p');
-                fileInfo.className = 'text-gray-700 font-medium';
-                fileInfo.textContent = `File: ${fileName}`;
-                previewContainer.appendChild(fileInfo);
-            }
-        }
-
-        // --- Review Screen ---
-        function populateReview() {
-            document.getElementById('review-weekEnding').textContent = claimWeek.weekEnding;
-            document.getElementById('review-claimantName').textContent = claimWeek.name;
-            document.getElementById('review-claimantId').textContent = "•".repeat(Math.max(0, claimWeek.idOrSsn.length - 4)) + claimWeek.idOrSsn.slice(-4);
-
-            const activitiesContainer = document.getElementById('review-activities');
-            activitiesContainer.innerHTML = ''; 
-
-            claimWeek.activities.forEach((activity, index) => {
-                let detailsHtml = '';
-                let activityName = 'N/A';
-                
-                if (activity.category === 'employer_contact') {
-                    activityName = `Employer Contact: ${activity.details.employerName || 'N/A'}`;
-                    detailsHtml = `
-                        <li><strong>Job Title:</strong> ${activity.details.jobTitle || 'N/A'}</li>
-                        <li><strong>Contact:</strong> ${activity.details.contactMethod || 'N/A'} (${activity.details.contactType || 'N/A'})</li>
-                    `;
-                } else if (activity.activityId) {
-                    activityName = activity.details.activityName;
-                    // Add dynamic fields to review
-                    const activityDef = activityDatabase[activity.category].find(a => a.id === activity.activityId);
-                    if (activityDef.fields) {
-                        activityDef.fields.forEach(field => {
-                            detailsHtml += `<li><strong>${field.ph}:</strong> ${activity.details[field.id] || 'N/A'}</li>`;
-                        });
-                    }
-                }
-
-                const activityCard = document.createElement('div');
-                activityCard.className = 'p-4 bg-gray-50 rounded-lg border border-gray-200';
-                activityCard.innerHTML = `
-                    <h4 class="text-md font-semibold text-teal-700 mb-2">Activity ${index + 1}: ${activity.date}</h4>
-                    <p class="font-semibold text-gray-800">${activityName}</p>
-                    <ul class="list-disc list-inside text-gray-700 space-y-1 mt-2">
-                        ${detailsHtml}
-                        <li class="truncate"><strong>Proof:</strong> ${activity.proofFile ? activity.proofFileName : 'None provided'}</li>
-                    </ul>
-                `;
-                activitiesContainer.appendChild(activityCard);
-            });
-        }
-
-        // --- ZIP Generation ---
-        async function generateZip() {
-            showLoading(true, "Generating your ZIP file...");
-            try {
-                const zip = new JSZip();
-                
-                showLoading(true, "Downloading PDF template...");
-                const filledPdfBytes = await createFilledPdf();
-                
-                const pdfFileName = `Job_Log_Week_Ending_${claimWeek.weekEnding.replace(/[/\\]/g, '-')}.pdf`;
-                zip.file(pdfFileName, filledPdfBytes);
-                
-                showLoading(true, "Adding proof files...");
-                const proofFolder = zip.folder("Proof_Files");
-                
-                for (let i = 0; i < claimWeek.activities.length; i++) {
-                    const activity = claimWeek.activities[i];
-                    if (activity.proofFile) {
-                        const fileData = await readFileAsArrayBuffer(activity.proofFile);
-                        proofFolder.file(activity.proofFileName, fileData);
-                    }
-                }
-                
-                showLoading(true, "Creating ZIP... Please wait.");
-                const zipBlob = await zip.generateAsync({ type: "blob" });
-                const zipFileName = `Job_Search_Log_${claimWeek.weekEnding.replace(/[/\\]/g, '-')}.zip`;
-                
-                saveAs(zipBlob, zipFileName);
-                showLoading(false);
-
-            } catch (err) {
-                console.error("Error generating ZIP:", err);
-                showLoading(false);
-                showError(`Failed to generate ZIP: ${err.message}. Please check your connection and try again.`);
-            }
-        }
-        
-        function readFileAsArrayBuffer(file) {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.onload = () => resolve(reader.result);
-                reader.onerror = (err) => reject(err);
-                reader.readAsArrayBuffer(file);
-            });
-        }
-
-        // --- PDF Filling ---
-        async function createFilledPdf() {
-            let pdfDoc;
-            try {
-                // This fetch will now look for the PDF relative to the HTML file
-                const existingPdfBytes = await fetch(BLANK_PDF_URL).then(res => {
-                    if (!res.ok) throw new Error(`Failed to fetch PDF template (Status: ${res.status}). Make sure 'assets/ESD-job-search-log-251009_0.pdf' is in the correct location.`);
-                    return res.arrayBuffer();
-                });
-                pdfDoc = await PDFDocument.load(existingPdfBytes);
-            } catch (e) {
-                console.error("Error loading PDF template:", e);
-                showError("Could not load official PDF. A new one will be created, but it may not be the official form.");
-                pdfDoc = await PDFDocument.create();
-                pdfDoc.addPage(); // Add a blank page
-            }
-            
-            const form = pdfDoc.getForm();
-            const fillTextField = (name, value) => { try { form.getTextField(name).setText(value || ''); } catch (e) { console.warn(`PDF field not found: ${name}`); } };
-            const selectRadio = (name, value) => { try { form.getRadioGroup(name).select(value); } catch (e) { console.warn(`RadioGroup field not found: ${name} (value: ${value})`); } };
-            const checkCheckBox = (name) => { try { form.getCheckBox(name).check(); } catch (e) { console.warn(`CheckBox field not found: ${name}`); } };
-
-            // --- Fill General Info (Using names from dump) ---
-            fillTextField('job-search-week', claimWeek.weekEnding);
-            fillTextField('Jobsearch log for week ending MonthDayYear', claimWeek.name);
-            fillTextField('ID or SSN', claimWeek.idOrSsn);
-            fillTextField('Jobsearch log for week ending MonthDayYear', claimWeek.name);
-            fillTextField('ID or SSN', claimWeek.idOrSsn);
-
-            // --- Fill Activities (Hardcoded based on dump) ---
-            claimWeek.activities.forEach((activity, index) => {
-                let activityName = activity.details.activityName || '';
-                let documentation = activity.details.documentation || '';
-                let location = '';
-
-                // Combine dynamic fields into documentation string
-                if (activity.category !== 'employer_contact') {
-                    let extraDetails = [];
-                    if (activity.details.link) extraDetails.push(`Link: ${activity.details.link}`);
-                    if (activity.details.workshop_name) extraDetails.push(`Workshop: ${activity.details.workshop_name}`);
-                    if (activity.details.facilitator_name) extraDetails.push(`Facilitator: ${activity.details.facilitator_name}`);
-                    if (activity.details.specialist_name) extraDetails.push(`Specialist: ${activity.details.specialist_name}`);
-                    if (activity.details.event_name) extraDetails.push(`Event: ${activity.details.event_name}`);
-                    if (activity.details.employer_contact) extraDetails.push(`Employer: ${activity.details.employer_contact}`);
-                    if (activity.details.course_name) extraDetails.push(`Course: ${activity.details.course_name}`);
-                    if (activity.details.platform_name) extraDetails.push(`Platform: ${activity.details.platform_name}`);
-                    // ...etc.
-                    
-                    if (extraDetails.length > 0) {
-                        documentation = `${activity.details.documentation} (${extraDetails.join(', ')})`;
-                    }
-                    if (activity.proofFile) {
-                        documentation += ` [Proof File: ${activity.proofFileName}]`;
-                    }
-                }
-                // NOTE THAT THIS PDF HAS NONSTANDARD FIELD NAMING CONVENTIONS - it is messed up. 
-                // Field names will be weird and inconsistent, below, but they work
-                // NOTE THAT THIS PDF HAS NONSTANDARD FIELD NAMING CONVENTIONS - it is messed up. 
-                // Field names will be weird and inconsistent, below, but they work
-                // --- Column 1 (index 0) ---
-                if (index === 0) {
-                    fillTextField('EMPLOYER CONTACTS AND JOB SEARCH ACTIVITIES', activity.date);
-                    
-                    if (activity.category === 'employer_contact') {
-                        selectRadio('Activity', 'employer contact');
-                        fillTextField('Job title or job reference number', activity.details.jobTitle);
-                        fillTextField('Employer or business name', activity.details.employerName);
-                        
-                        if (activity.details.contactMethod === 'In-person') checkCheckBox('In-person');
-                        if (activity.details.contactMethod === 'Online') checkCheckBox('Online');
-                        if (activity.details.contactMethod === 'By phone') checkCheckBox('By phone');
-                        if (activity.details.contactMethod === 'By Email') checkCheckBox('By email');
-                        if (activity.details.contactMethod === 'By mail') checkCheckBox('By mail');
-                        if (activity.details.contactMethod === 'Other') {
-                            checkCheckBox('Other');
-                            fillTextField('other contact', activity.details.contactMethodOther);
-                        }
-                        
-                        if (activity.details.contactType === 'Application/resume') selectRadio('Type of Contact', 'application resume');
-                        if (activity.details.contactType === 'Interview') selectRadio('Type of Contact', 'Interview');
-                        if (activity.details.contactType === 'Inquiry') selectRadio('Type of Contact', 'Inquiry');
-                        
-                        fillTextField('Employer or business contact information', activity.details.address); // nonstandard naming issue in pdf
-                        fillTextField('Address', activity.details.addressCity);
-                        fillTextField('State', activity.details.addressState);
-                        fillTextField('Website or email address', activity.details.websiteEmail);
-                        fillTextField('Phone number', activity.details.phone);
-                    
-                    } else if (activity.category.startsWith('worksource_') || activity.category === 'wioa_programs') {
-                        selectRadio('Activity', 'Worksource activity');
-                        officeName = activity.details.office_name || '';
-                        if (activity.category === 'worksource_online') officeName = 'Online';
-                        
-                        fillTextField('What activity did you complete', activityName);
-                        fillTextField('What documentation do you have', documentation);
-                        fillTextField('Office name', officeName);
-                        fillTextField('City', activity.details.office_city);
-                        fillTextField('State_2', activity.details.office_state);
-                    
-                    } else { // All others
-                        selectRadio('Activity', 'other activity');
-                        fillTextField('What activity did you complete_2', activityName); 
-                        fillTextField('What documentation do you have_2', documentation);
-                    }
-                }
-                
-                // --- Column 2 (index 1) ---
-                else if (index === 1) {
-                    fillTextField('Contact Date MMDDYYYY', activity.date);
-                    
-                    if (activity.category === 'employer_contact') {
-                        selectRadio('Activity2', 'employer contract2'); // Name from dump
-                        fillTextField('Job title or job reference number_2', activity.details.jobTitle);
-                        fillTextField('Employer or business name_2', activity.details.employerName);
-
-                        if (activity.details.contactMethod === 'In-person') checkCheckBox('In-person-2');
-                        if (activity.details.contactMethod === 'Online') checkCheckBox('Online-2');
-                        if (activity.details.contactMethod === 'By phone') checkCheckBox('By phone-2');
-                        if (activity.details.contactMethod === 'By Email') checkCheckBox('By email-2');
-                        if (activity.details.contactMethod === 'By mail') checkCheckBox('By mail-2');
-                        if (activity.details.contactMethod === 'Other') {
-                            checkCheckBox('Other-2');
-                            fillTextField('Other contact2', activity.details.contactMethodOther);
-                        }
-                        
-                        if (activity.details.contactType === 'Application/resume') selectRadio('Type of Contact2', 'Application resume2');
-                        if (activity.details.contactType === 'Interview') selectRadio('Type of Contact2', 'Interview2');
-                        if (activity.details.contactType === 'Inquiry') selectRadio('Type of Contact2', 'Inquiry2');
-                        
-                        fillTextField('Employer or business contact information_2', activity.details.address); 
-                        fillTextField('Address_2', activity.details.addressCity);
-                        fillTextField('State2', activity.details.addressState);
-                        fillTextField('Website or email address2', activity.details.websiteEmail);
-                        fillTextField('Phone number2', activity.details.phone);
-                    
-                    } else if (activity.category.startsWith('worksource_') || activity.category === 'wioa_programs') {
-                        selectRadio('Activity2', 'Worksource activity2');
-                        officeName = activity.details.office_name || '';
-                        if (activity.category === 'worksource_online') officeName = 'Online';
-                        
-                        fillTextField('What activity did you complete_3', activityName); 
-                        fillTextField('What documentation do you have_3', documentation);
-                        fillTextField('Where did you complete this activity_2', officeName); //office name
-                        fillTextField('Office name_2', activity.details.office_city); //city
-                        fillTextField('State_4', activity.details.office_state); //state
-                    
-                    } else { // All others
-                        selectRadio('Activity2', 'other activity2');
-                        fillTextField('What activity did you complete_4', activityName);
-                        fillTextField('What documentation do you have_4', documentation);
-                    }
-                }
-
-                // --- Column 3 (index 2) ---
-                else if (index === 2) {
-                    fillTextField('Keep this log for your records', activity.date);
-                    
-                    if (activity.category === 'employer_contact') {
-                        selectRadio('Activity3', 'Employer contact'); // Name from dump
-                        fillTextField('Job title or job reference number_3', activity.details.jobTitle);
-                        fillTextField('Employer or business name_3', activity.details.employerName);
-
-                        if (activity.details.contactMethod === 'In-person') checkCheckBox('In-person-3');
-                        if (activity.details.contactMethod === 'Online') checkCheckBox('Online-3');
-                        if (activity.details.contactMethod === 'By phone') checkCheckBox('By phone-3');
-                        if (activity.details.contactMethod === 'By Email') checkCheckBox('By email-3');
-                        if (activity.details.contactMethod === 'By mail') checkCheckBox('By mail-3');
-                        if (activity.details.contactMethod === 'Other') {
-                            checkCheckBox('Other-3');
-                            fillTextField('Other contact3', activity.details.contactMethodOther);
-                        }
-                        
-                        if (activity.details.contactType === 'Application/resume') selectRadio('Type of contact3', 'application resume3');
-                        if (activity.details.contactType === 'Interview') selectRadio('Type of contact3', 'Interview3');
-                        if (activity.details.contactType === 'Inquiry') selectRadio('Type of contact3', 'Inquiry3');
-                        
-                        fillTextField('Employer or business contact information_3', activity.details.address);
-                        fillTextField('Address_3', activity.details.addressCity);
-                        fillTextField('State3', activity.details.addressState);
-                        fillTextField('Website or email address3', activity.details.websiteEmail);
-                        fillTextField('Website or email address_3', activity.details.phone);
-                    
-                    } else if (activity.category.startsWith('worksource_') || activity.category === 'wioa_programs') {
-                        selectRadio('Activity3', 'Worksource activity');
-                        officeName = activity.details.office_name || '';
-                        if (activity.category === 'worksource_online') officeName = 'Online';
-                        
-                        fillTextField('What activity did you complete_5', activityName); 
-                        fillTextField('What documentation do you have_5', documentation); 
-                        fillTextField('Where did you complete this activity_3', officeName); 
-                        fillTextField('Office name_3', activity.details.office_city); // PDF City for WS3
-                        fillTextField('State_6', activity.details.office_state); // PDF State for WS3 (per dump)
-                    
-                    } else { // All others
-                        selectRadio('Activity3', 'Other activity');
-                        fillTextField('What activity did you complete_6', activityName); // Per dump
-                        fillTextField('What documentation do you have_6', documentation); // Per dump
-                    }
-                }
-            });
-            
-            try {
-                if (form.getFields().length > 0) form.flatten();
-            } catch (e) {
-                console.warn("Could not flatten PDF. Fields will remain editable.", e.message);
-            }
-
-            return await pdfDoc.save();
-        }
-
-
-        // --- Utility Functions ---
-        function showLoading(isLoading, message = "Loading...") {
-            if (isLoading) {
-                loadingOverlay.querySelector('p').textContent = message;
-                loadingOverlay.style.display = 'flex';
-            } else {
-                loadingOverlay.style.display = 'none';
-            }
-        }
-        
-        function showError(message) {
-            errorMessage.textContent = message;
-            errorModal.style.display = 'flex';
-        }
-        
-        function closeModal(modalId) {
-             document.getElementById(modalId).style.display = 'none';
-        }
-        
-        function formatDate(dateString) {
-            // Converts "YYYY-MM-DD" to "MM/DD/YYYY"
-            if (!dateString) return '';
-            try {
-                const [year, month, day] = dateString.split('-');
-                return `${month}/${day}/${year}`;
-            } catch {
-                return dateString; // Return as-is if format is unexpected
-            }
-        }
-        
-        function reformatDateForInput(dateString) {
-            // Converts "MM/DD/YYYY" to "YYYY-MM-DD"
-             if (!dateString) return '';
-            try {
-                const [month, day, year] = dateString.split('/');
-                return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
-            } catch {
-                return dateString; // Return as-is if format is unexpected
-            }
-        }
-
+        // This script block is only for initialization that MUST happen inline or
+        // if you prefer to keep some config here.
+        // Currently, all logic has been moved to external files.
     </script>
+    <script src="js/ui-utils.js"></script>
+    <script src="js/activity-data.js"></script>
+    <script src="js/pdf-utils.js"></script>
+    <script src="js/zip-utils.js"></script>
+    <script src="js/app.js"></script>
 </body>
 <footer class="mt-12 text-center text-gray-500 text-sm">
     <div class="py-6 border-t border-gray-200">
-        &copy; 2025 Timothy Johnstone (<a href="https://github.com/tgjohnst" class="underline hover:text-teal-700">tgjohnst</a>) &mdash;
-        <a href="https://github.com/tgjohnst/waesd-job-log-assistant" class="underline hover:text-teal-700" target="_blank" rel="noopener">View on GitHub</a>
+        &copy; 2025 Timothy Johnstone (<a href="https://github.com/tgjohnst"
+            class="underline hover:text-teal-700">tgjohnst</a>) &mdash;
+        <a href="https://github.com/tgjohnst/waesd-job-log-assistant" class="underline hover:text-teal-700"
+            target="_blank" rel="noopener">View on GitHub</a>
     </div>
 </footer>
+
 </html>
